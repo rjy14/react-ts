@@ -1,0 +1,18 @@
+.navbar {
+    background-color: dark;
+    height: 70px;
+  }
+  .nav-link {
+    font-size: 20px;
+  }
+  .cart-link {
+    font-size: 20px;
+    margin-right: 30px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+  }
+  .cart-icon {
+    font-size: 25px;
+    margin-left: 10px;
+  }
