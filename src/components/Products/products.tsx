@@ -11,20 +11,18 @@ interface ProductProps{
   Product_qty: number;
 }
 function Product(props: ProductProps) {
-  console.log(props)
   let { id } = useParams();
-  const project =jsonData.find((project) => project.Product_id =Number(id))
-  console.log(project)
+  const project =jsonData.find((project) => project.Product_id === Number(id))
   console.log(id)
   return (
     <div>
       <h2>Product Details!</h2>
-      <p>Name: {props.Product_name}</p>
-      <p>Price: {props.Product_price}</p>
-      <p>Info: {props.Product_info}</p>
-      <p>Picture: {props.Product_picture}</p>
-      <p>ID: {props.Product_id}</p>
-      <p>Quantity: {props.Product_qty}</p>
+      <p>Name: {project?.Product_name}</p>
+      <p>Price: {project?.Product_price}</p>
+      <p>Info: {project?.Product_info}</p>
+      <p>Picture: {project?.Product_picture}</p>
+      <p>ID: {project?.Product_id}</p>
+      <p>Quantity: {project?.Product_qty}</p>
     </div>
   );
 }

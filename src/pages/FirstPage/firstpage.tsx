@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import "./firstpage.css"
 import jsonData from '../../data.json';
 import Pagination from '../../components/pagination/pagination';
-// import {Link} from "react-router-dom";
 import { Link} from 'react-router-dom';
 // import Product from '../Products/products';
 function ProjectsPage() {
