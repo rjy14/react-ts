@@ -3,7 +3,6 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState } from 'react';
 import "../../pages/FirstPage/firstpage.css"
-//import "./firstpage.css"
 import jsonData from '../../data.json';
 import Pagination from '../../components/pagination/pagination';
 import { Link} from 'react-router-dom';
@@ -24,6 +23,11 @@ function ProjectsPage() {
      // Set the position of the
 };
   function AddToCart() {
+
+
+   
+
+
     console.log("Add to cart is called")
   }
   // return 
