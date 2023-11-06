@@ -4,10 +4,15 @@ import Row from 'react-bootstrap/Row';
 import React, { useState } from 'react';
 import "../../pages/FirstPage/firstpage.css"
 import jsonData from '../../data.json';
-import Pagination from '../../components/pagination/pagination';
+import Pagination from '../pagination/pagination';
 import { Link} from 'react-router-dom';
-// import Product from '../Products/products';
+import { useShoppingCart } from '../../context/CartContext';
 function ProjectsPage() {
+  const {
+    increaseCartQuantity
+    // decreaseCartQuantity,
+    // removeFromCart,
+  } = useShoppingCart()
   const [currentPage, setCurrentPage] = useState<number>(1)
   const lastPage: number =20;
   const cardsPerPage: number = 12;
@@ -22,51 +27,6 @@ function ProjectsPage() {
     objectFit: 'cover',  // Set the height of the image
      // Set the position of the
 };
-  function AddToCart() {
-
-
-   
-
-
-    console.log("Add to cart is called")
-  }
-  // return 
-  //   <>
-  //   <div className='scrollable-table'>
-  //   <br></br>
-  //   <Row xs={1} md={4} className="g-0 justify-content-center">
-  //   {currentCards.map((Product, id) => (
-  //       <Col key={id} className="p-2 d-flex justify-content-center">
-  //          <Link to={`/Product/${id}`}>
-  //         <Card>
-  //           <div className="text-center">
-  //             <Card.Img src={Product.Product_picture} style={imageSize} />
-  //           </div>
-  //         <Card.Body >
-  //           <Card.Title>
-  //             {Product.Product_name}
-  //             </Card.Title>
-  //             <Card.Text>
-  //               {Product.Product_price}
-  //             </Card.Text>
-  //             <Card.Footer className="card-footer">
-  //             <button className="button" onClick={AddToCart}>Add to cart</button>
-  //             </Card.Footer>
-  //           </Card.Body>
-  //         </Card>
-  //         </Link>
-  //       </Col>
-  //     ))}
-  //   </Row>
-  //   </div>
-  //   <div>
-  //   <Pagination currentPage={currentPage} 
-  // lastPage={lastPage} 
-  // maxLength={7} 
-  // setCurrentPage={setCurrentPage}/> 
-  //   </div>
-  //   </>
-  //   );
   return (
       <>
         <div className='scrollable-table'>
@@ -89,7 +49,12 @@ function ProjectsPage() {
             </Card.Body>
             </Link>
             <Card.Footer className="card-footer">
-               <button className="button" onClick={AddToCart}>Add to cart</button>
+            <button
+                    className="button"
+         
+                    onClick={() => increaseCartQuantity(Product.Product_id)}>
+                    Adds to cart
+            </button>
              </Card.Footer>
              </Card>
               </Col>

@@ -14,6 +14,7 @@ import "./products.css"
 // }
 
 function AddToCart() {
+  
   console.log("Add to cart is called")
 }
 function Product() {
