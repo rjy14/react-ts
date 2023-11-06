@@ -21,6 +21,7 @@ function TopNavbar() {
           <Nav className="me-auto">
           <Nav.Link href="/home" style={{ fontSize:'20px', marginLeft: '30px' }} >Home</Nav.Link>
           <Nav.Link href="/Sale" style={{ fontSize:'20px', marginLeft: '60px' }}>Sale</Nav.Link>
+          <Nav.Link href="/AllProducts" style={{ fontSize:'20px', marginLeft: '90px'}}>Products</Nav.Link>
           </Nav>
           <Nav>
           <Nav.Link href="/Cart" style={{ fontSize: '20px', marginRight: '60px', marginTop:'6px', position:'relative' }}>

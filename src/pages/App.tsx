@@ -10,6 +10,7 @@ import LoginForm from "./Login/login";
 import Sale from "./Sales/sale";
 import SignUpForm from "./Signup/signup";
 import Product  from "../components/Products/products";
+import AllProductsPage from "./AllProductsPage/AllProductsPage";
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Sale" element={<Sale />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/product/:id" element={<Product/>}  /> 
+          <Route path="/AllProducts" element={<AllProductsPage/>}/>          
     </Routes>
     </BrowserRouter>
     </>
