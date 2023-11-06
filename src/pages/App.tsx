@@ -1,4 +1,4 @@
-                  import "./App.css";
+import "./App.css";
 // import ProjectsPage from "./firstpage";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import LoginForm from "./login";
@@ -21,14 +21,10 @@ function App() {
           <Route path="/Signup" element={<SignUpForm />} />
           <Route path="/Sale" element={<Sale />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/product/:id" element={<Product Product_id={0} 
-          Product_name={""} Product_price={0} 
-          Product_info={""} Product_picture={""} 
-          Product_qty={0}/>}  /> 
+          <Route path="/product/:id" element={<Product/>}  /> 
     </Routes>
     </BrowserRouter>
     </>
   );
 }
 export default App;
-

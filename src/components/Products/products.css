@@ -1,0 +1,25 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    left: 20%; /* Adjust this value to control how far left you want it */
+    size: 50px;
+  }
+  h1{
+    color: pink;
+    margin-top: 6%;
+  }
+  .card-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 6%;
+    left: 65%;
+  }
+  .custom-text {
+    font-size: 28px;
+
+  }
