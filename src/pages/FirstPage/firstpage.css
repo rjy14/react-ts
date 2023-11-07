@@ -25,3 +25,12 @@
   position: relative;
   max-width: 100% ;
 }
+h1{
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 40px;
+}
+h2{
+  font-family: 'courier New', Courier, monospace;
+  margin-top: 90px;
+  text-align: center;
+}

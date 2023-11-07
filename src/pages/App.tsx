@@ -9,11 +9,13 @@ import ProjectsPage from "./FirstPage/firstpage";
 import LoginForm from "./Login/login";
 import Sale from "./Sales/sale";
 import SignUpForm from "./Signup/signup";
-import Product  from "../components/Products/products";
+import Product  from "../components/DetailedProductPage/products";
 import AllProductsPage from "./AllProductsPage/AllProductsPage";
+import { ShoppingCartProvider } from "../context/CartContext";
 function App() {
   return (
     <>
+      <ShoppingCartProvider>
     <TopNavbar/>
     <BrowserRouter> 
     <Routes>
@@ -21,11 +23,12 @@ function App() {
           <Route path="/Login" element={<LoginForm />} />
           <Route path="/Signup" element={<SignUpForm />} />
           <Route path="/Sale" element={<Sale />} />
-          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Cart" element={<Cart cartItems={[]} />} />
           <Route path="/product/:id" element={<Product/>}  /> 
           <Route path="/AllProducts" element={<AllProductsPage/>}/>          
     </Routes>
     </BrowserRouter>
+    </ShoppingCartProvider>
     </>
   );
 }
