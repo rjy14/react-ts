@@ -1,5 +1,6 @@
+// import Welcome from "../../components/welcome/welcome";
 import "./firstpage.css"
-import ProductsPage from '../../components/ProductsCardPage/ProductsPage';
+// import ProductsPage from '../../components/ProductsCardPage/ProductsPage';
 function ProjectsPage() {
   //   <>
   //   <div className='scrollable-table'>
@@ -39,8 +40,18 @@ function ProjectsPage() {
   //   );
   return (
       <>
-          <br></br>
-               <ProductsPage/>
+   <h1>
+    Welcome to HighFashion!
+   </h1>
+   <h2>
+    Latest Summer Products
+   </h2>
+   {/* <Welcome/> */}
+
+
+
+
+               {/* <ProductsPage/> */}
       </>
   );
 }

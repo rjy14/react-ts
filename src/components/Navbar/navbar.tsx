@@ -29,7 +29,6 @@ function TopNavbar() {
           <Nav>
           {/* <Nav.Link href="/Cart" style={{ fontSize: '20px', marginRight: '60px', marginTop:'6px', position:'relative' }}>
             <FontAwesomeIcon icon={faShoppingCart} className='cart-link' />
-
           </Nav.Link> */}
           {cartQuantity > 0 && (
           <Button

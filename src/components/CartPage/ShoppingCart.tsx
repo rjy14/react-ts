@@ -3,11 +3,9 @@ import { useShoppingCart } from "../../context/CartContext"
 // import { formatCurrency } from "../utilities/formatCurrency"
 import { CartItem } from "./CartItem"
 import storeItems from "../../data.json"
-
 type ShoppingCartProps = {
   isOpen: boolean
 }
-
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useShoppingCart()
   return (
@@ -21,11 +19,11 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             <CartItem key={item.id} {...item} />
           ))}
           <div className="ms-auto fw-bold fs-5">
-            Total{" "}
+          Total:{" $"}
             {(
               cartItems.reduce((total, cartItem) => {
                 const item = storeItems.find(i => i.Product_id === cartItem.id)
-                return total + parseInt(item?.Product_price || "") * cartItem.quantity
+                return total +  (item?.Product_price || 0) * cartItem.quantity
               }, 0)
             )}
           </div>

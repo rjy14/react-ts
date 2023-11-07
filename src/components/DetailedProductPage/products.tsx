@@ -3,6 +3,7 @@ import {  useParams } from "react-router-dom";
 import jsonData from '../../data.json';
 import { Card } from "react-bootstrap";
 import "./products.css"
+import { useShoppingCart } from "../../context/CartContext";
 // import ProjectsPage from "../FirstPage/firstpage";
 // interface ProductProps{
 //   Product_id: number;
@@ -13,11 +14,17 @@ import "./products.css"
 //   Product_qty: number;
 // }
 
-function AddToCart() {
+// function AddToCart() {
   
-  console.log("Add to cart is called")
-}
+//   console.log("Add to cart is called")
+// }
 function Product() {
+
+  const {
+    increaseCartQuantity
+    // decreaseCartQuantity,
+    // removeFromCart,
+  } = useShoppingCart()
   const imageSize: React.CSSProperties = {
     width: '255px', // Set the width of the image
     height: '255px',  // Set the height of the image
@@ -61,7 +68,13 @@ function Product() {
              </Card.Text>
             </Card.Body>
             <Card.Footer className="card-footer">
-          <button className="button" onClick={AddToCart}>Add to cart</button>
+            <button className="button" 
+        onClick={() => {
+          if (project?.Product_id !== undefined) {
+            increaseCartQuantity(project.Product_id);
+          }
+        }}> Add to cart
+</button>
         </Card.Footer>
         </Card>
         </div>

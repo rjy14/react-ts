@@ -7,10 +7,7 @@
     left: 20%; /* Adjust this value to control how far left you want it */
     size: 50px;
   }
-  h1{
-    color: pink;
-    margin-top: 6%;
-  }
+
   .card-info {
     display: flex;
     justify-content: center;
