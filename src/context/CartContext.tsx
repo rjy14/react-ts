@@ -18,9 +18,9 @@ type ShoppingCartContext = {
   cartQuantity: number
   cartItems: CartItem[]
 }
-const ShoppingCartContext = createContext({} as ShoppingCartContext)
+const ok= createContext({} as ShoppingCartContext)
 export function useShoppingCart() {
-  return useContext(ShoppingCartContext)
+  return useContext(ok)
 }
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false)
@@ -73,7 +73,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   }
   return (
-    <ShoppingCartContext.Provider
+    <ok.Provider
       value={{
         getItemQuantity,
         increaseCartQuantity,
@@ -87,6 +87,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     >
       {children}
       <ShoppingCart isOpen={isOpen} />
-    </ShoppingCartContext.Provider>
+    </ok.Provider>
   )
 }

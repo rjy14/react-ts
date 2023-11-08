@@ -1,5 +1,7 @@
-// import Welcome from "../../components/welcome/welcome";
-import "./firstpage.css"
+import Carousel from "../../components/Slider/Slider";
+
+import "./Firstpage.css"
+
 // import ProductsPage from '../../components/ProductsCardPage/ProductsPage';
 function ProjectsPage() {
   //   <>
@@ -46,12 +48,8 @@ function ProjectsPage() {
    <h2>
     Latest Summer Products
    </h2>
-   {/* <Welcome/> */}
-
-
-
-
-               {/* <ProductsPage/> */}
+   <Carousel/>
+{/* <ProductsPage/> */}
       </>
   );
 }

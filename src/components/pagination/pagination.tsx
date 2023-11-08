@@ -1,15 +1,12 @@
-
-import { getPaginationItems } from '../../lib/pagination';
-import PageLink from './pageLink';
-import './pageLink.css';
-
+import { getPaginationItems } from '../../lib/Pagination';
+import PageLink from './PageLink';
+import './PageLink.css';
 export type Props = {
   currentPage: number;
   lastPage: number;
   maxLength: number;
   setCurrentPage: (page: number) => void;
 };
-
 export default function Pagination({
   currentPage,
   lastPage,
@@ -17,7 +14,6 @@ export default function Pagination({
   setCurrentPage,
 }: Props) {
   const pageNums = getPaginationItems(currentPage, lastPage, maxLength);
-
   return (
     <nav className="pagination" aria-label="Pagination">
       <PageLink
