@@ -1,7 +1,5 @@
 import Carousel from "../../components/Slider/Slider";
-
-import "./Firstpage.css"
-
+import "./Firstpage.css";
 // import ProductsPage from '../../components/ProductsCardPage/ProductsPage';
 function ProjectsPage() {
   //   <>
@@ -33,24 +31,23 @@ function ProjectsPage() {
   //   </Row>
   //   </div>
   //   <div>
-  //   <Pagination currentPage={currentPage} 
-  // lastPage={lastPage} 
-  // maxLength={7} 
-  // setCurrentPage={setCurrentPage}/> 
+  //   <Pagination currentPage={currentPage}
+  // lastPage={lastPage}
+  // maxLength={7}
+  // setCurrentPage={setCurrentPage}/>
   //   </div>
   //   </>
   //   );
   return (
-      <>
-   <h1>
-    Welcome to HighFashion!
-   </h1>
-   <h2>
-    Latest Summer Products
-   </h2>
-   <Carousel/>
-{/* <ProductsPage/> */}
-      </>
+    <>
+      <h1>Welcome to HighFashion!</h1>
+      <h2>Latest Summer Products</h2>
+      <Carousel />
+      {/* <ProductsPage/> */}
+      <footer>
+        <p>&copy;</p>
+      </footer>
+    </>
   );
 }
 export default ProjectsPage;

@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react"
-import { ShoppingCart } from "../components/CartPage/ShoppingCart"
+
 import { useLocalStorage } from "../hooks/useLocalStorage"
+import ShoppingCart from "../components/CartPage/ShoppingCart"
 type ShoppingCartProviderProps = {
   children: ReactNode
 }

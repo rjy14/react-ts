@@ -19,7 +19,6 @@ import { useShoppingCart } from "../../context/CartContext";
 //   console.log("Add to cart is called")
 // }
 function Product() {
-
   const {
     increaseCartQuantity
     // decreaseCartQuantity,
@@ -31,7 +30,6 @@ function Product() {
      // Set the position of the
 };
   let { id } = useParams();
-  
   const project =jsonData.find((project) => project.Product_id === Number(id))
   return (
     <div>
@@ -50,7 +48,6 @@ function Product() {
         </Card>
     </div>
     <h1> {project?.Product_name}</h1>
-
     <div className="card-info">
       <Card style={{ width: '400px', height: '400px' }}>
      <Card.Body >

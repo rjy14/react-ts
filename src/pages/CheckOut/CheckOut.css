@@ -1,0 +1,72 @@
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .split {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bigger-left {
+    flex: 1.5; /* Make the left side bigger (adjust the value as needed) */
+    border-right: 1px solid #ccc;
+  }
+  .smaller-right {
+    flex: 1; /* Make the right side smaller (adjust the value as needed) */
+  }
+  .centered-text {
+    text-align: center;
+  }
+  .shipping-form {
+    text-align: left; /* Align form elements to the left */
+    max-width: 300px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the form horizontally in the container */
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block; /* Place labels on top of input fields */
+    margin-bottom: 5px;
+  }
+  input {
+   width: 480px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .name-input {
+    display: flex;
+    align-items: center;
+  }
+  .name-input input {
+    flex: 1;
+    margin-right: 2px;
+    width: 240px; /* Add space between the input fields */
+  }
+  h2{
+    position: relative;
+    margin-top: 80px;
+   
+  }
+  select {
+    width: 480px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+
+  .payment-form {
+    text-align: left; /* Align form elements to the left */
+    max-width: 300px; /* Adjust the maximum width as needed */
+    margin: 0 auto; 
+    
+  }
