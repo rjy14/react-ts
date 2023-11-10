@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Slider, { Settings } from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Slider.css";
-import jsonData from "../../data/data.json";
+import jsonData from "../../constant/data.json";
 import { Link } from "react-router-dom";
 // interface Product {
 //   Product_id: number;

@@ -8,12 +8,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AllProductsPage from "./AllProductsPage/AllProductsPage";
 import { ShoppingCartProvider } from "../context/CartContext";
 import TopNavbar from "../components/Navbar/Navbar";
-import Product from "../components/DetailedProductPage/Products";
-import ProjectsPage from "./FirstPage/Firstpage";
-import LoginForm from "./Login/Login";
+
+import ProjectsPage from "./HomePage/Homepage";
+
 import SignUpForm from "./Signup/Signup";
 import Sale from "./Sales/Sale";
 import Cart from "./Cart/Index";
+
+import Product from "../components/DetailedProductPage/Products";
+import LoginForm from "./Login/Login";
+
 function App() {
   return (
     <>
