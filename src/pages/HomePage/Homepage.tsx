@@ -1,5 +1,5 @@
 import Carousel from "../../components/Slider/Slider";
-import "./Homepage.css";
+import "./Homepage.css"
 // import ProductsPage from '../../components/ProductsCardPage/ProductsPage';
 function ProjectsPage() {
   //   <>
