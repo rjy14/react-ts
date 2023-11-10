@@ -1,8 +1,26 @@
+.product-contents{
+  border: 1px solid #ccc;
+  width: 85%;
+  position: relative;
+  margin-left: auto;
+}
+.filtering-contents{
+  border: 1px solid #ccc;
+  width:15%;
+  position: relative;
+  margin-right: auto;
+}
+.filter{
+   max-height: 670px; /* Adjust the height as needed */
+  overflow-y: auto;
+  position: relative;
+  max-width: 100% ;
+}
 .card {
   width: 18rem;
   border: 1px solid #ccc;
   border-radius: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 .card:hover {
@@ -20,7 +38,7 @@
   padding: 2%;
 }
 .scrollable-table {
-  max-height: 800px; /* Adjust the height as needed */
+  max-height: 670px; /* Adjust the height as needed */
   overflow-y: auto;
   position: relative;
   max-width: 100% ;
