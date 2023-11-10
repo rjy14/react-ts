@@ -2,11 +2,12 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import React, { useState } from "react";
-import "../../pages/FirstPage/Firstpage.css";
-import jsonData from "../../data/data.json";
-import Pagination from "../Pagination/Pagination";
+import "../../pages/HomePage/Homepage.css";
+import jsonData from "../../constant/data.json";
+
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
+import Pagination from "../Pagination/Index";
 function ProjectsPage() {
   const {
     increaseCartQuantity,
