@@ -54,7 +54,7 @@ function LoginForm() {
     // event.preventDefault(); commented out so the page will reload after submit
     console.log("username:", username);
     console.log("password:", password);
-    alert("Account registered successfully");
+    alert("welcome to HighFashion!");
   };
   return (
     <>

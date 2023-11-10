@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useContext, useState } from "react"
-
 import { useLocalStorage } from "../hooks/useLocalStorage"
 import ShoppingCart from "../components/CartPage/ShoppingCart"
 type ShoppingCartProviderProps = {
@@ -19,7 +18,6 @@ type ShoppingCartContext = {
   cartQuantity: number
   cartItems: CartItem[]
 }
-
 const Cart= createContext({} as ShoppingCartContext)
 export function useShoppingCart() {
   return useContext(Cart)

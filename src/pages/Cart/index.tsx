@@ -1,7 +1,6 @@
 interface CartProps {
   cartItems: string[];
 }
-
 const Cart: React.FC<CartProps> = ({ cartItems }) => {
   return (
   <>
@@ -9,5 +8,4 @@ const Cart: React.FC<CartProps> = ({ cartItems }) => {
   </>
   );
 };
-
 export default Cart;

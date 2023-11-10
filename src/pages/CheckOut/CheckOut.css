@@ -1,19 +1,21 @@
 .checkout-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  .split {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.split {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Make each split take full width on smaller screens */
+}
   .bigger-left {
-    flex: 1.5; /* Make the left side bigger (adjust the value as needed) */
-    border-right: 1px solid #ccc;
+    flex: 1.5; /* Make the left side take full width on smaller screens */
+    border-right: 1px solid; /* Remove the border on smaller screens */
   }
   .smaller-right {
-    flex: 1; /* Make the right side smaller (adjust the value as needed) */
+    flex: 1.5; /* Make the right side take full width on smaller screens */
   }
   .centered-text {
     text-align: center;
@@ -48,7 +50,6 @@
   h2{
     position: relative;
     margin-top: 80px;
-   
   }
   select {
     width: 480px;
@@ -63,10 +64,16 @@
     background-repeat: no-repeat;
     background-position: right 8px center;
   }
-
   .payment-form {
     text-align: left; /* Align form elements to the left */
     max-width: 300px; /* Adjust the maximum width as needed */
     margin: 0 auto; 
-    
+  }
+  @media only screen and (max-width: 800px) {
+    .checkout-container {
+      flex-direction: column;
+    }
+    .bigger-left {
+      border-right: none;  /* Remove the border on smaller screens */
+    }
   }

@@ -27,17 +27,14 @@ function SignUpForm() {
         Email:
         <input type="text" value={email} onChange={(event) => setemail(event.target.value)} required/>
       </label>
-
       <label>
         FirstName:
         <input type="text" value={FirstName} onChange={(event) => setFirstName(event.target.value)} required/>
       </label>
-
       <label>
         LastName:
         <input type="text" value={LastName} onChange={(event) => setLastName(event.target.value)} required/>
       </label>
-
       <label>
         Username:
         <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} required/>
@@ -46,13 +43,10 @@ function SignUpForm() {
         Password:
         <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required/>
       </label>
-
     <center>
-
       <button type="submit">Sign up!</button>
       </center>
     </form>
-
      </>
   );};
 export default SignUpForm;
