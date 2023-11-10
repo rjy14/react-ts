@@ -1,5 +1,5 @@
 import React from 'react';
-import "./sale.css"
+import "./Sale.css"
 interface SaleProps {
   // Define your props here if needed
 }

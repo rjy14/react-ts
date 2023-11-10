@@ -11,7 +11,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useShoppingCart } from "../../context/CartContext"
 // import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import "./navbar.css";
+import "./Navbar.css";
 import { Button } from 'react-bootstrap';
 function TopNavbar() {
   const { openCart, cartQuantity } = useShoppingCart()

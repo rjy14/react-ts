@@ -1,8 +1,8 @@
 // import React from 'react'
 import {  useParams } from "react-router-dom";
-import jsonData from '../../data.json';
+import jsonData from '../../constant/data.json';
 import { Card } from "react-bootstrap";
-import "./products.css"
+import "./Products.css"
 import { useShoppingCart } from "../../context/CartContext";
 // import ProjectsPage from "../FirstPage/firstpage";
 // interface ProductProps{

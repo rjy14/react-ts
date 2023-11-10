@@ -2,9 +2,9 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useState } from 'react';
-import "../../pages/FirstPage/firstpage.css"
-import jsonData from '../../data.json';
-import Pagination from '../pagination/pagination';
+import "../../pages/HomePage/Homepage.css"
+import jsonData from '../../constant/data.json';
+import Pagination from '../Pagination/Index';
 import { Link} from 'react-router-dom';
 import { useShoppingCart } from '../../context/CartContext';
 function ProjectsPage() {
@@ -51,7 +51,6 @@ function ProjectsPage() {
             <Card.Footer className="card-footer">
             <button
                     className="button"
-         
                     onClick={() => increaseCartQuantity(Product.Product_id)}>
                     Adds to cart
             </button>
