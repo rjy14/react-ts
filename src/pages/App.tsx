@@ -8,9 +8,18 @@ import ProjectsPage from "./HomePage/Homepage";
 import SignUpForm from "./Signup/Signup";
 import Sale from "./Sales/Sale";
 import Cart from "./Cart/Index";
+<<<<<<< HEAD
 import CheckOut from "./CheckOut/CheckOut";
 import LoginForm from "./Login/login";
 import Product from "../components/DetailedProductPage/products";
+=======
+
+
+import LoginForm from "./Login/Login";
+import CheckOut from "./CheckOut/CheckOut";
+import Product from "../components/DetailedProductPage/products";
+
+>>>>>>> 0284c556f625f26f7612d64641213c66ac9cd35f
 function App() {
   return (
     <>
