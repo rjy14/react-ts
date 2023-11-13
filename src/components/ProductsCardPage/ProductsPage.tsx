@@ -1,12 +1,12 @@
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import React, { useState } from 'react';
-import "../../pages/HomePage/Homepage.css"
-import jsonData from '../../constant/data.json';
-import Pagination from '../Pagination/Index';
-import { Link} from 'react-router-dom';
-import { useShoppingCart } from '../../context/CartContext';
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import React, { useState } from "react";
+import "../../pages/HomePage/Homepage.css";
+import jsonData from "../../constant/data.json";
+import Pagination from "../Pagination/Index";
+import { Link } from "react-router-dom";
+import { useShoppingCart } from "../../context/CartContext";
 function ProjectsPage() {
   const {
     increaseCartQuantity,
@@ -64,45 +64,47 @@ function ProjectsPage() {
       <div className="all-contents">
         <div className="filtering-contents">
           <div className="filter">
-            <u>
-              <h3>Filters</h3>
-            </u>
-            <label>
-              <input
-                type="radio"
-                value="Bags"
-                checked={selectedFilter === "Bags"}
-                onChange={handleFilterChange}
-              />
-              Bags
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="Shirts"
-                checked={selectedFilter === "Shirts"}
-                onChange={handleFilterChange}
-              />
-              Shirts
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="Sneakers"
-                checked={selectedFilter === "Sneakers"}
-                onChange={handleFilterChange}
-              />
-              Sneakers
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="New"
-                checked={selectedFilter === "New"}
-                onChange={handleFilterChange}
-              />
-              New
-            </label>
+            <div className="alignment">
+              <u>
+                <h3>Filters</h3>
+              </u>
+              <label>
+                <input
+                  type="radio"
+                  value="Bags"
+                  checked={selectedFilter === "Bags"}
+                  onChange={handleFilterChange}
+                />
+                Bags
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="Shirts"
+                  checked={selectedFilter === "Shirts"}
+                  onChange={handleFilterChange}
+                />
+                Shirts
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="Sneakers"
+                  checked={selectedFilter === "Sneakers"}
+                  onChange={handleFilterChange}
+                />
+                Sneakers
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="New"
+                  checked={selectedFilter === "New"}
+                  onChange={handleFilterChange}
+                />
+                New
+              </label>
+            </div>
             <button onClick={handleClearFilter}>Clear</button>
           </div>
         </div>
@@ -112,7 +114,7 @@ function ProjectsPage() {
               {currentCards.map((Product, id) => (
                 <Col key={id} className="p-2 d-flex justify-content-center">
                   <Card>
-                    <Link to={`/product/${Product.Product_id}`}>
+                    <Link to={`/product/${Product.Product_id}`} style={{ textDecoration: 'none' }}>
                       <div className="text-center">
                         <Card.Img
                           src={Product.Product_picture}
@@ -124,7 +126,7 @@ function ProjectsPage() {
                           {Product.Product_name}
                         </Card.Title>
                         <Card.Text style={{ color: "black" }}>
-                          {Product.Product_price}
+                          ${Product.Product_price}
                         </Card.Text>
                       </Card.Body>
                     </Link>

@@ -1,6 +1,7 @@
 .all-contents {
   width: 100%;
   display: flex;
+  max-height: 720px; 
 }
 h3{
   text-align: center;
@@ -10,13 +11,13 @@ h3{
   border: 1px solid #ccc;
   width: 85%;
 }
+
 .filtering-contents {
   border: 1px solid #ccc;
   width: 15%;
 }
 .filter {
-  max-height: 670px;
-  overflow-y: auto;
+  max-height: 720px;
   max-width: 100%;
 }
 .filtering-contents,
@@ -38,21 +39,21 @@ h3{
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 .card:hover {
-  background-color: #f5f5f5; /* Change the background color on hover */
+  background-color: #f5f5f5;
 }
 .card-footer {
   display: flex;
-  justify-content: flex-end; /* Align contents to the right */
-  background-color: #f5f5f5; /* Set a background color for the footer */
-  padding: 10px; /* Add padding for spacing */
+  justify-content: flex-end; 
+  background-color: #f5f5f5; 
+  padding: 10px; 
 }
 .button {
-  background-color: lightgray; /* Change 'red' to the color you desire */
+  background-color: lightgray; 
   color: white; 
   padding: 2%;
 }
 .scrollable-table {
-  max-height: 670px; /* Adjust the height as needed */
+  max-height: 720px;
   overflow-y: auto;
   position: relative;
   max-width: 100% ;

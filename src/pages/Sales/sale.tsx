@@ -1,13 +1,11 @@
 import React from 'react';
 import "./Sale.css"
+import ProductsCardSale from '../../components/ProductsCardPage/ProductsCardSale';
 interface SaleProps {
-  // Define your props here if needed
 }
 const Sale: React.FC<SaleProps> = () => {
   return (
-    <center>
-      <h1>sale page</h1>
-    </center>
+     <ProductsCardSale/>
   );
 };
 export default Sale;

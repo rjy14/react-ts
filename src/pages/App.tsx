@@ -10,7 +10,7 @@ import Sale from "./Sales/Sale";
 import Cart from "./Cart/Index";
 import LoginForm from "./Login/Login";
 import CheckOut from "./CheckOut/CheckOut";
-import Product from "../components/DetailedProductPage/products";
+import Product from "../components/DetailedProductPage/Products";
 function App() {
   return (
     <>
