@@ -1,20 +1,34 @@
-.product-contents{
+.all-contents {
+  width: 100%;
+  display: flex;
+}
+h3{
+  text-align: center;
+  font-family:'Courier New', Courier, monospace
+}
+.product-contents {
   border: 1px solid #ccc;
   width: 85%;
-  position: relative;
-  margin-left: auto;
 }
-.filtering-contents{
+.filtering-contents {
   border: 1px solid #ccc;
-  width:15%;
-  position: relative;
-  margin-right: auto;
+  width: 15%;
 }
-.filter{
-   max-height: 670px; /* Adjust the height as needed */
+.filter {
+  max-height: 670px;
   overflow-y: auto;
-  position: relative;
-  max-width: 100% ;
+  max-width: 100%;
+}
+.filtering-contents,
+.product-contents {
+  display: flex;
+  flex-direction: column;
+}
+.filtering-contents {
+  padding: 10px;
+}
+.product-contents {
+  padding: 10px;
 }
 .card {
   width: 18rem;
