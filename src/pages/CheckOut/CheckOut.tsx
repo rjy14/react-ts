@@ -9,8 +9,6 @@ function CheckOut() {
   };
   return (
     <div className="checkout-container">
-      <div className="split bigger-left">
-        <div className="left-form">
         <div className="centered-text">
           <h2>Shipping Details</h2>
           <br></br>
@@ -86,16 +84,9 @@ function CheckOut() {
                 placeholder="Postal Code"
               />
             </div>
-          </form>
-        </div>
-        </div>
-      </div>
-      <div className="split smaller-right">
-        <div className="centered-text">
-          <h2>Enter Payment Details</h2>
+            <h2>Enter Payment Details</h2>
           <br></br>
-          <form className="payment-form">
-            <div className="form-group">
+        
               <div className="form-group">
                 <input
                   type="text"
@@ -117,12 +108,11 @@ function CheckOut() {
               <div className="name-input">
                 <input type="number" id="cvv" placeholder="CVV" required />
                 <input type="text" id="Date" placeholder="Expiry Date" />
-              </div>
-            </div>
+              </div> 
           </form>
         </div>
-      </div>
-    </div>
+   </div>
+       
   );
 }
 export default CheckOut;
