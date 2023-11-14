@@ -34,11 +34,8 @@ function Carousel() {
         setSlidesToShow(1);
       }
     };
-    // Initial setup
     updateSlidesToShow();
-    // Update slidesToShow on window resize
     window.addEventListener("resize", updateSlidesToShow);
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("resize", updateSlidesToShow);
     };
@@ -52,8 +49,7 @@ function Carousel() {
     prevArrow: <PrevArrow onClick={() => {}} />,
     beforeChange: (_current: any, next: number) => setImageIndex(next),
   };
-
-  const limitedData = jsonData.filter((product) => product.Product_id >= 90);
+  const limitedData = jsonData.filter((product) => product.Product_id >= 90 && product.Product_id <= 1999);
   return (
     <div className="App">
       <Slider {...settings}>

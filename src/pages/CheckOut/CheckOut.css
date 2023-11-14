@@ -69,6 +69,27 @@
     max-width: 300px; /* Adjust the maximum width as needed */
     margin: 0 auto; 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   @media only screen and (max-width: 800px) {
     .checkout-container {
       flex-direction: column;
@@ -77,4 +98,3 @@
       border-right: none;  /* Remove the border on smaller screens */
     }
   }
-  
