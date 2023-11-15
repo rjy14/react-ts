@@ -1,9 +1,7 @@
 import { HTMLProps } from 'react';
 import cn from 'classnames';
 import './PageLink.css';
-
 export type Props = HTMLProps<HTMLAnchorElement> & { active?: boolean };
-
 export default function PageLink({
   className,
   active,
@@ -15,11 +13,9 @@ export default function PageLink({
     active,
     disabled,
   });
-
   if (disabled) {
     return <span className={customClassName}>{children}</span>;
   }
-
   return (
     <a
       className={customClassName}

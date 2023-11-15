@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react";
-import "./Login.css"
+import "./Login.css";
 // import TopNavbar from '../../components/Navbar/navbar';
 // function LoginForm() {
 //   const [username, setUsername] = useState<string>('');
@@ -15,7 +15,7 @@ import "./Login.css"
 //     <>
 //     <br></br>
 //     <h1>Please enter your account details!</h1>
-//     <form onSubmit={handleSubmit}>  
+//     <form onSubmit={handleSubmit}>
 //       <label>
 //         Username:
 //         <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} className="rounded-input" required/>
@@ -48,18 +48,17 @@ function Input({ type, value, onChange, className, required }: InputProps) {
 }
 // Usage of Input component in your LoginForm
 function LoginForm() {
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string | number>('');
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string | number>("");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // event.preventDefault(); commented out so the page will reload after submit
-    console.log('username:', username);
-    console.log('password:', password);
-    alert("Account registered successfully");
+    console.log("username:", username);
+    console.log("password:", password);
+    alert("welcome to HighFashion!");
   };
   return (
     <>
       <br />
-      
       <h1>Please enter your account details!</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -90,7 +89,3 @@ function LoginForm() {
   );
 }
 export default LoginForm;
-
-
-
-

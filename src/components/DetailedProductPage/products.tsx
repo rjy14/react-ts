@@ -13,9 +13,7 @@ import { useShoppingCart } from "../../context/CartContext";
 //   Product_picture: string;
 //   Product_qty: number;
 // }
-
 // function AddToCart() {
-  
 //   console.log("Add to cart is called")
 // }
 function Product() {
@@ -58,10 +56,10 @@ function Product() {
                {project?.Product_info}
              </Card.Text >
                <Card.Text className="custom-text">
-               Price: {project?.Product_price}
+               Price: ${project?.Product_price}
              </Card.Text>
              <Card.Text >
-              quantity: {project?.Product_qty} left!
+              Quantity: {project?.Product_qty} left!
              </Card.Text>
             </Card.Body>
             <Card.Footer className="card-footer">

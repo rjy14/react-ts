@@ -10,5 +10,4 @@ const Sale: React.FC<SaleProps> = () => {
     </center>
   );
 };
-
 export default Sale;
