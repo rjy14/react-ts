@@ -3,28 +3,19 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.split {
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%; /* Make each split take full width on smaller screens */
-}
-  .bigger-left {
-    flex: 1.5; /* Make the left side take full width on smaller screens */
-    border-right: 1px solid; /* Remove the border on smaller screens */
-  }
-  .smaller-right {
-    flex: 1.5; /* Make the right side take full width on smaller screens */
-  }
   .centered-text {
     text-align: center;
+    padding-left: 35%;
   }
   .shipping-form {
     text-align: left; /* Align form elements to the left */
-    max-width: 300px; /* Adjust the maximum width as needed */
+    max-width: 495px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the form horizontally in the container */
-  }
+    border: 1px solid #ccc; /* Add a border to the form */
+    border-radius: 10px; /* Set the border-radius to create rounded corners */
+    padding: 20px; /* Add some padding to the form */
+    background-color: grey;
+}
   .form-group {
     margin-bottom: 10px;
   }
@@ -63,11 +54,6 @@
     background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 8px center;
-  }
-  .payment-form {
-    text-align: left; /* Align form elements to the left */
-    max-width: 300px; /* Adjust the maximum width as needed */
-    margin: 0 auto; 
   }
 
 
