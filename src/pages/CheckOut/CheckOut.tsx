@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CheckOut.css"; // Create a CSS file for styling
 function CheckOut() {
+  const [cardNumber, setCardNumber] = useState('');
+  const handleCardNumberChange = (e: { target: { value: string; }; }) => {
+    const input = e.target.value.replace(/\D/g, '');
+    const formattedInput = input.replace(/(\d{4})/g, '$1 ').trim(); // Add space after every 4 numbers
+    setCardNumber(formattedInput);
+  };
   return (
     <div className="checkout-container">
       <div className="split bigger-left">
+        <div className="left-form">
         <div className="centered-text">
           <h2>Shipping Details</h2>
           <br></br>
@@ -26,10 +33,18 @@ function CheckOut() {
             </div>
             <div className="form-group">
               <input
-                type="text"
+                type="number"
                 id="phoneNumber"
                 name="phoneNumber"
                 placeholder="Phone Number"
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="Email"
+                name="Email"
+                placeholder="Email"
               />
             </div>
             <div className="form-group">
@@ -73,6 +88,7 @@ function CheckOut() {
             </div>
           </form>
         </div>
+        </div>
       </div>
       <div className="split smaller-right">
         <div className="centered-text">
@@ -89,13 +105,15 @@ function CheckOut() {
                 />
               </div>
               <div className="form-group">
-                <input
-                  type="number"
-                  id="CardNo"
-                  placeholder="Card Number"
-                  required
-                />
-              </div>
+      <input
+        type="text"
+        id="CardNo"
+        placeholder="Card Number"
+        value={cardNumber}
+        onChange={handleCardNumberChange}
+        required
+      />
+    </div>
               <div className="name-input">
                 <input type="number" id="cvv" placeholder="CVV" required />
                 <input type="text" id="Date" placeholder="Expiry Date" />

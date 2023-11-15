@@ -105,7 +105,7 @@ function ProjectsPage() {
                 New
               </label>
             </div>
-            <button onClick={handleClearFilter}>Clear</button>
+            <center><button onClick={handleClearFilter}>Clear</button></center>
           </div>
         </div>
         <div className="product-contents">

@@ -3,29 +3,29 @@ import { useState} from "react";
 import { useNavigate } from "react-router-dom";
 function SignUpForm() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string | number>('');
-  const [email, setemail] = useState<string | number>('');
+  const [Username, setUsername] = useState<string>('');
+  const [Password, setPassword] = useState<string | number>('');
+  const [Email, setEmail] = useState<string | number>('');
   const [FirstName, setFirstName] = useState<string>('');
   const [LastName, setLastName] = useState<string>('');
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // event.preventDefault(); commented out so page will reload after submit
-    console.log('username:', username);
-    console.log('password:', password);
-    console.log('email:', email);
+    console.log('Username:', Username);
+    console.log('password:', Password);
+    console.log('Email:', Email);
     console.log('FirstName:', FirstName);
     console.log('LastName:', LastName);
     navigate('/login')
-    alert("Account registered successfully")
+    alert("Your account has been registered successfully")
 };  
   return (
     <>
     <br></br>
-    <center><h1>Plese enter your details!</h1></center>  
+    <center><h1>Please enter your details!</h1></center>  
     <form onSubmit={handleSubmit}>  
     <label>
         Email:
-        <input type="text" value={email} onChange={(event) => setemail(event.target.value)} required/>
+        <input type="email" value={Email} onChange={(event) => setEmail(event.target.value)} required/>
       </label>
       <label>
         FirstName:
@@ -37,11 +37,11 @@ function SignUpForm() {
       </label>
       <label>
         Username:
-        <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} required/>
+        <input type="text" value={Username} onChange={(event) => setUsername(event.target.value)} required/>
       </label>
       <label>
         Password:
-        <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required/>
+        <input type="password" value={Password} onChange={(event) => setPassword(event.target.value)} required/>
       </label>
     <center>
       <button type="submit">Sign up!</button>
