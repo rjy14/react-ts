@@ -52,7 +52,7 @@ function Carousel() {
     prevArrow: <PrevArrow onClick={() => {}} />,
     beforeChange: (_current: any, next: number) => setImageIndex(next),
   };
-  // Filter jsonData to include only items with Product_id less than or equal to 10
+
   const limitedData = jsonData.filter((product) => product.Product_id >= 90);
   return (
     <div className="App">

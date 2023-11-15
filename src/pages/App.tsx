@@ -13,6 +13,7 @@ import Cart from "./Cart/Index";
 import LoginForm from "./Login/login";
 import CheckOut from "./CheckOut/CheckOut";
 import Product from "../components/DetailedProductPage/products";
+import React from "react";
 
 function App() {
   return (
