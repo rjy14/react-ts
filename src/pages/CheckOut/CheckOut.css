@@ -32,11 +32,12 @@
   .name-input {
     display: flex;
     align-items: center;
+    margin-top: 32px;
   }
   .name-input input {
     flex: 1;
-    margin-right: 2px;
-    width: 240px; /* Add space between the input fields */
+    /* margin-right: 2px; */
+    width: 175px; /* Add space between the input fields */
   }
   h2{
     position: relative;
@@ -55,27 +56,6 @@
     background-repeat: no-repeat;
     background-position: right 8px center;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   @media only screen and (max-width: 800px) {
     .checkout-container {
       flex-direction: column;

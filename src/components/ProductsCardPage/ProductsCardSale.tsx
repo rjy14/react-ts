@@ -20,7 +20,9 @@ function ProductsCardSale() {
   const cardsPerPage: number = 12;
   const indexOfLastCard: number = currentPage * cardsPerPage;
   const indexOfFirstCard: number = indexOfLastCard - cardsPerPage;
-  function handleSearchChange(event: { target: { value: React.SetStateAction<string>; }; }) {
+  function handleSearchChange(event: {
+    target: { value: React.SetStateAction<string> };
+  }) {
     setSearchKeyword(event.target.value);
     setCurrentPage(1);
   }
@@ -32,7 +34,7 @@ function ProductsCardSale() {
   //   setSelectedFilter(null);
   //   setCurrentPage(1);
   // };
-  function handleFilterChange(event: { target: { value: any; }; }) {
+  function handleFilterChange(event: { target: { value: any } }) {
     const newFilter = event.target.value;
     setSelectedFilter(newFilter);
     setCurrentPage(1);
@@ -84,31 +86,43 @@ function ProductsCardSale() {
                   checked={selectedFilter === "Bags"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 Bags
+              </label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="Shirts"
                   checked={selectedFilter === "Shirts"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 Shirts
+              </label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="Sneakers"
                   checked={selectedFilter === "Sneakers"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 Sneakers
+              </label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="New"
                   checked={selectedFilter === "New"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 New
-            </label> 
+              </label>
             </div>
-            <center><button onClick={handleClearFilter}>Clear</button></center>  
+            <center>
+              <button onClick={handleClearFilter}>Clear</button>
+            </center>
           </div>
         </div>
         <div className="product-contents">
@@ -171,7 +185,6 @@ function ProductsCardSale() {
           </div>
         </div>
       </div>
-     
     </>
   );
 }
