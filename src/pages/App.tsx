@@ -8,10 +8,13 @@ import ProjectsPage from "./HomePage/Homepage";
 import SignUpForm from "./Signup/Signup";
 import Sale from "./Sales/Sale";
 import Cart from "./Cart/Index";
-import LoginForm from "./Login/Login";
+
+
+import LoginForm from "./Login/login";
 import CheckOut from "./CheckOut/CheckOut";
-import Product from "../components/DetailedProductPage/Products";
+import Product from "../components/DetailedProductPage/products";
 import React from "react";
+
 function App() {
   return (
     <>
