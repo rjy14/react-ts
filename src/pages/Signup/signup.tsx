@@ -9,12 +9,6 @@ function SignUpForm() {
   const [FirstName, setFirstName] = useState<string>('');
   const [LastName, setLastName] = useState<string>('');
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // event.preventDefault(); commented out so page will reload after submit
-    console.log('Username:', Username);
-    console.log('password:', Password);
-    console.log('Email:', Email);
-    console.log('FirstName:', FirstName);
-    console.log('LastName:', LastName);
     navigate('/login')
     alert("Your account has been registered successfully")
 };  

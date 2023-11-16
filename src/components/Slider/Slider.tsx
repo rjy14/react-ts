@@ -26,9 +26,9 @@ function Carousel() {
       // Adjust the number of slides to show based on the screen width
       if (window.innerWidth >= 1200) {
         setSlidesToShow(5);
-      } else if (window.innerWidth >= 992) {
+      } else if (window.innerWidth >= 980) {
         setSlidesToShow(4);
-      } else if (window.innerWidth >= 768) {
+      } else if (window.innerWidth >= 750) {
         setSlidesToShow(3);
       } else {
         setSlidesToShow(1);

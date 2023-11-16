@@ -7,7 +7,6 @@
     left: 20%; /* Adjust this value to control how far left you want it */
     size: 50px;
   }
-
   .card-info {
     display: flex;
     justify-content: center;
@@ -18,5 +17,4 @@
   }
   .custom-text {
     font-size: 28px;
-
   }
