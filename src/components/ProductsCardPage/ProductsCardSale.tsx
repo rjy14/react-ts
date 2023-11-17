@@ -10,8 +10,6 @@ import { useShoppingCart } from "../../context/CartContext";
 function ProductsCardSale() {
   const {
     increaseCartQuantity,
-    // decreaseCartQuantity,
-    // removeFromCart,
   } = useShoppingCart();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchKeyword, setSearchKeyword] = useState<string>("");

@@ -2,7 +2,7 @@
   "name": "react-ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/home", 
+  "homepage": "/home",
   "proxy": "http://localhost:1234",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",

@@ -1,11 +1,16 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../context/CartContext";
 import storeItems from "../../constant/data.json";
+//TypeScript
 type CartItemProps = {
   id: number;
   quantity: number;
 };
-export function CartItem({ id, quantity }: CartItemProps) {
+function CartItem({ id, quantity }: CartItemProps) {
+  const {
+    increaseCartQuantity,
+    decreaseCartQuantity,
+  } = useShoppingCart()
   const { removeFromCart } = useShoppingCart();
   const item = storeItems.find((i) => i.Product_id === id);
   if (item == null) return null;
@@ -28,7 +33,17 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div className="text-muted" style={{ fontSize: ".75rem" }}>
           ${item.Product_price}
         </div>
-        <div className="text-muted">Total Quantity: - {quantity} + </div>
+        <div className="text-muted">Total Quantity: 
+        <div className="quantity">
+        <Button className="w-30" style={{ backgroundColor: 'grey', border: '1px solid #ccc' }} onClick={() => decreaseCartQuantity(id)}>
+              -
+            </Button>
+        {quantity}
+        <Button className="w-30" style={{ backgroundColor: 'grey', border: '1px solid #ccc' }} onClick={() => increaseCartQuantity(id)}>
+              +
+            </Button>
+            </div>
+        </div>
       </div>
       <div>${item.Product_price * quantity}</div>
       <Button
@@ -41,3 +56,4 @@ export function CartItem({ id, quantity }: CartItemProps) {
     </Stack>
   );
 }
+export default CartItem
