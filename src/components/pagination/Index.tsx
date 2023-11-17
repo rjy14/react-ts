@@ -1,19 +1,23 @@
 import { getPaginationItems } from '../../lib/Pagination';
 import PageLink from './PageLink';
 import './PageLink.css';
+
 export type Props = {
   currentPage: number;
   lastPage: number;
   maxLength: number;
   setCurrentPage: (page: number) => void;
 };
+
 export default function Pagination({
   currentPage,
   lastPage,
   maxLength,
   setCurrentPage,
 }: Props) {
+
   const pageNums = getPaginationItems(currentPage, lastPage, maxLength);
+
   return (
     <nav className="pagination" aria-label="Pagination">
       <PageLink
@@ -22,7 +26,9 @@ export default function Pagination({
       >
         Previous
       </PageLink>
+
       {pageNums.map((pageNum, idx) => (
+
         <PageLink
           key={idx}
           active={currentPage === pageNum}
@@ -32,6 +38,7 @@ export default function Pagination({
           {!isNaN(pageNum) ? pageNum : '...'}
         </PageLink>
       ))}
+      
       <PageLink
         disabled={currentPage === lastPage}
         onClick={() => setCurrentPage(currentPage + 1)}

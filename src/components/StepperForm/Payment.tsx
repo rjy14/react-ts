@@ -6,9 +6,11 @@ type PaymentData = {
   CVV: string;
   Expirydate: string;
 };
+
 type PaymentFormProps = PaymentData & {
   updateFields: (fields: Partial<PaymentData>) => void;
 };
+
 export function PaymentForm({
   Fullname,
   Cardnumber,
@@ -16,6 +18,7 @@ export function PaymentForm({
   Expirydate,
   updateFields,
 }: PaymentFormProps) {
+  
   return (
     <FormWrapper title="Shipping Details">
       <label>Fullname</label>

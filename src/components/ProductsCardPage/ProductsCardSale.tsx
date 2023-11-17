@@ -7,10 +7,10 @@ import jsonData from "../../constant/data.json";
 import Pagination from "../Pagination/Index";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
+
 function ProductsCardSale() {
-  const {
-    increaseCartQuantity,
-  } = useShoppingCart();
+  
+  const { increaseCartQuantity } = useShoppingCart();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
@@ -18,33 +18,30 @@ function ProductsCardSale() {
   const cardsPerPage: number = 12;
   const indexOfLastCard: number = currentPage * cardsPerPage;
   const indexOfFirstCard: number = indexOfLastCard - cardsPerPage;
+
   function handleSearchChange(event: {
     target: { value: React.SetStateAction<string> };
   }) {
     setSearchKeyword(event.target.value);
     setCurrentPage(1);
   }
+
   function handleClearFilter() {
     setSelectedFilter(null);
     setCurrentPage(1);
   }
-  // const handleClearFilter = () => {
-  //   setSelectedFilter(null);
-  //   setCurrentPage(1);
-  // };
+
   function handleFilterChange(event: { target: { value: any } }) {
     const newFilter = event.target.value;
     setSelectedFilter(newFilter);
     setCurrentPage(1);
   }
-  // const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newFilter = event.target.value;
-  //   setSelectedFilter(newFilter);
-  //   setCurrentPage(1);
+
   const imageSize: React.CSSProperties = {
     width: "155px",
     objectFit: "cover",
   };
+
   const filteredCards = jsonData
     .filter((product) =>
       product.Product_name.toLowerCase().includes(searchKeyword.toLowerCase())
@@ -54,6 +51,7 @@ function ProductsCardSale() {
     )
     .filter((product) => product.Product_id >= 2000);
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+
   return (
     <>
       <h1>HighFashion</h1>
@@ -77,6 +75,7 @@ function ProductsCardSale() {
               <u>
                 <h3>Filters</h3>
               </u>
+
               <label className="sidebar-label-container">
                 <input
                   type="radio"
@@ -86,7 +85,8 @@ function ProductsCardSale() {
                 />
                 <span className="checkmark"></span>
                 Bags
-              </label>
+              </label>   
+
               <label className="sidebar-label-container">
                 <input
                   type="radio"
@@ -96,7 +96,8 @@ function ProductsCardSale() {
                 />
                 <span className="checkmark"></span>
                 Shirts
-              </label>
+              </label> 
+
               <label className="sidebar-label-container">
                 <input
                   type="radio"
@@ -107,6 +108,7 @@ function ProductsCardSale() {
                 <span className="checkmark"></span>
                 Sneakers
               </label>
+
               <label className="sidebar-label-container">
                 <input
                   type="radio"
@@ -117,12 +119,16 @@ function ProductsCardSale() {
                 <span className="checkmark"></span>
                 New
               </label>
+
             </div>
             <center>
+
               <button onClick={handleClearFilter}>Clear</button>
+
             </center>
           </div>
         </div>
+
         <div className="product-contents">
           <div className="scrollable-table">
             <Row xs={1} md={4} className="g-0 justify-content-center">

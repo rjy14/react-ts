@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider, { Settings } from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Slider.css";
 import jsonData from "../../constant/data.json";
 import { Link } from "react-router-dom";
+
 function Carousel() {
+  //void means it does not return any values
   const NextArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
       <div className="arrow next" onClick={onClick}>
@@ -12,6 +14,7 @@ function Carousel() {
       </div>
     );
   };
+
   const PrevArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
       <div className="arrow prev" onClick={onClick}>
@@ -19,11 +22,13 @@ function Carousel() {
       </div>
     );
   };
+
   const [imageIndex, setImageIndex] = useState<number>(0);
-  const [slidesToShow, setSlidesToShow] = useState<number>(5);
-  useEffect(() => {
+  const [slidesToShow, setSlidesToShow] = useState<number>();
+
+useEffect(() => {
     const updateSlidesToShow = () => {
-      // Adjust the number of slides to show based on the screen width
+      // show number of cards based on the screen size
       if (window.innerWidth >= 1200) {
         setSlidesToShow(5);
       } else if (window.innerWidth >= 980) {
@@ -34,12 +39,14 @@ function Carousel() {
         setSlidesToShow(1);
       }
     };
+
     updateSlidesToShow();
     window.addEventListener("resize", updateSlidesToShow);
     return () => {
       window.removeEventListener("resize", updateSlidesToShow);
     };
-  }, []);
+  });
+
   const settings: Settings = {
     infinite: true,
     speed: 700,
@@ -49,7 +56,11 @@ function Carousel() {
     prevArrow: <PrevArrow onClick={() => {}} />,
     beforeChange: (_current: any, next: number) => setImageIndex(next),
   };
-  const limitedData = jsonData.filter((product) => product.Product_id >= 90 && product.Product_id <= 1999);
+
+  const limitedData = jsonData.filter(
+    (product) => product.Product_id >= 90 && product.Product_id <= 1999
+  );
+  
   return (
     <div className="App">
       <Slider {...settings}>

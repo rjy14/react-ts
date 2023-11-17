@@ -57,10 +57,5 @@
     background-position: right 8px center;
   }
   @media only screen and (max-width: 800px) {
-    .checkout-container {
-      flex-direction: column;
-    }
-    .bigger-left {
-      border-right: none;  /* Remove the border on smaller screens */
-    }
+   
   }

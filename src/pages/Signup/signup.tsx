@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState} from "react";
 import { useNavigate } from "react-router-dom";
+
 function SignUpForm() {
   const navigate = useNavigate();
   const [Username, setUsername] = useState<string>('');
@@ -12,14 +13,16 @@ function SignUpForm() {
     navigate('/login')
     alert("Your account has been registered successfully")
 };  
+
   return (
     <>
     <br></br>
     <center><h1>Please enter your details!</h1></center>  
     <form onSubmit={handleSubmit}>  
+    <div>
     <label>
-        Email:
-        <input type="email" value={Email} onChange={(event) => setEmail(event.target.value)} required/>
+        Email Add:
+        <input type="email"  value={Email} onChange={(event) => setEmail(event.target.value)} required/>
       </label>
       <label>
         FirstName:
@@ -40,6 +43,7 @@ function SignUpForm() {
     <center>
       <button type="submit">Sign up!</button>
       </center>
+      </div>
     </form>
      </>
   );};

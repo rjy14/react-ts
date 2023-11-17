@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+
 interface InputProps {
   type: string;
   value: string | number;
@@ -8,6 +10,7 @@ interface InputProps {
   className: string;
   required: boolean;
 }
+
 function Input({ type, value, onChange, className, required }: InputProps) {
   return (
     <input
@@ -21,6 +24,7 @@ function Input({ type, value, onChange, className, required }: InputProps) {
 }
 // Usage of Input component in your LoginForm
 function LoginForm() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string | number>("");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,7 +32,9 @@ function LoginForm() {
     console.log("username:", username);
     console.log("password:", password);
     alert("welcome to HighFashion!");
+    navigate('/home')
   };
+  
   return (
     <>
       <br />

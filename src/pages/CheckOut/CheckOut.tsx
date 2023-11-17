@@ -124,6 +124,7 @@ type FormData = {
   CVV: string;
   Expirydate: string;
 };
+
 const INITIAL_DATA: FormData = {
   //typescript
   Firstname: "",
@@ -139,6 +140,7 @@ const INITIAL_DATA: FormData = {
   CVV: "",
   Expirydate: "",
 };
+
 function CheckOut() {
   const { removeAll } = useShoppingCart();
   const navigate = useNavigate();
@@ -148,11 +150,13 @@ function CheckOut() {
       return { ...prev, ...fields };
     });
   }
+
   const { steps, currentStepIndex, step, isFirstStep, isLastStep, back, next } =
     useMulti([
       <ShippingForm {...data} updateFields={updateFields} />,
       <PaymentForm {...data} updateFields={updateFields} />,
     ]);
+
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isLastStep) return next();
@@ -160,6 +164,7 @@ function CheckOut() {
     removeAll();
     navigate("/home");
   }
+  
   return (
     <>
       <h1>HighFashion</h1>

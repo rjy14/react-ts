@@ -1,19 +1,24 @@
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../context/CartContext";
 import storeItems from "../../constant/data.json";
-//TypeScript
+//TypeScript  
 type CartItemProps = {
   id: number;
   quantity: number;
-};
-function CartItem({ id, quantity }: CartItemProps) {
+}
+
+// function CartItem( props : CartItemProps) {
+const CartItem: React.FunctionComponent<CartItemProps>=({id, quantity})=> {
   const {
     increaseCartQuantity,
     decreaseCartQuantity,
   } = useShoppingCart()
+
   const { removeFromCart } = useShoppingCart();
   const item = storeItems.find((i) => i.Product_id === id);
+  
   if (item == null) return null;
+
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
       <img
@@ -46,6 +51,7 @@ function CartItem({ id, quantity }: CartItemProps) {
         </div>
       </div>
       <div>${item.Product_price * quantity}</div>
+
       <Button
         variant="outline-danger"
         size="sm"
