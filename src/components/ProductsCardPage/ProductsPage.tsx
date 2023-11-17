@@ -68,44 +68,50 @@ function ProjectsPage() {
               <u>
                 <h3>Filters</h3>
               </u>
-              <label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="Bags"
                   checked={selectedFilter === "Bags"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 Bags
               </label>
-              <label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="Shirts"
                   checked={selectedFilter === "Shirts"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 Shirts
               </label>
-              <label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="Sneakers"
                   checked={selectedFilter === "Sneakers"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 Sneakers
               </label>
-              <label>
+              <label className="sidebar-label-container">
                 <input
                   type="radio"
                   value="New"
                   checked={selectedFilter === "New"}
                   onChange={handleFilterChange}
                 />
+                <span className="checkmark"></span>
                 New
               </label>
             </div>
-            <center><button onClick={handleClearFilter}>Clear</button></center>
+            <center>
+              <button onClick={handleClearFilter}>Clear</button>
+            </center>
           </div>
         </div>
         <div className="product-contents">
@@ -114,7 +120,10 @@ function ProjectsPage() {
               {currentCards.map((Product, id) => (
                 <Col key={id} className="p-2 d-flex justify-content-center">
                   <Card>
-                    <Link to={`/product/${Product.Product_id}`} style={{ textDecoration: 'none' }}>
+                    <Link
+                      to={`/product/${Product.Product_id}`}
+                      style={{ textDecoration: "none" }}
+                    >
                       <div className="text-center">
                         <Card.Img
                           src={Product.Product_picture}

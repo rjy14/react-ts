@@ -5,16 +5,13 @@ import AllProductsPage from "./AllProductsPage/AllProductsPage";
 import { ShoppingCartProvider } from "../context/CartContext";
 import TopNavbar from "../components/Navbar/Navbar";
 import ProjectsPage from "./HomePage/Homepage";
-import SignUpForm from "./Signup/Signup";
+import SignUpForm from "./Signup/SignUp";
 import Sale from "./Sales/Sale";
 import Cart from "./Cart/Index";
-
-
-import LoginForm from "./Login/login";
+import LoginForm from "./Login/Login";
 import CheckOut from "./CheckOut/CheckOut";
-import Product from "../components/DetailedProductPage/products";
+import Product from "../components/DetailedProductPage/Products";
 import React from "react";
-
 function App() {
   return (
     <>

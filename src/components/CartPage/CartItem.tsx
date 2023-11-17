@@ -1,7 +1,6 @@
-import { Button, Stack } from "react-bootstrap"
-import { useShoppingCart } from "../../context/CartContext"
-import storeItems from "../../constant/data.json"
-// import { formatCurrency } from "../utilities/formatCurrency"
+import { Button, Stack } from "react-bootstrap";
+import { useShoppingCart } from "../../context/CartContext";
+import storeItems from "../../constant/data.json";
 type CartItemProps = {
   id: number;
   quantity: number;
@@ -29,7 +28,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div className="text-muted" style={{ fontSize: ".75rem" }}>
           ${item.Product_price}
         </div>
-        <div className="text-muted">Total Quantity: {quantity}</div>
+        <div className="text-muted">Total Quantity: - {quantity} + </div>
       </div>
       <div>${item.Product_price * quantity}</div>
       <Button

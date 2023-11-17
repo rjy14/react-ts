@@ -41,7 +41,7 @@ function ProjectsPage() {
   return (
     <>
       <h1>Welcome to HighFashion!</h1>
-      <h2>Latest Summer Products</h2>
+      <u><h2>Latest Summer Products</h2></u>
       <Carousel />
       {/* <ProductsPage/> */}
       <footer>
