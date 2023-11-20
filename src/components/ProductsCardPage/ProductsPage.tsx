@@ -8,41 +8,52 @@ import Pagination from "../Pagination/Index";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
 function ProjectsPage() {
-  const {
-    increaseCartQuantity,
-  } = useShoppingCart();
+
+  const { increaseCartQuantity } = useShoppingCart();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
-  const lastPage: number = 20;
-  const cardsPerPage: number = 12;
+  const lastPage: number = 12; //number of pagination pages
+  const cardsPerPage: number = 12; //number of cards
   const indexOfLastCard: number = currentPage * cardsPerPage;
   const indexOfFirstCard: number = indexOfLastCard - cardsPerPage;
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+  //^ variables
+  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
+    //targeting the input form below
     setSearchKeyword(event.target.value);
     setCurrentPage(1);
-  };
-  const handleClearFilter = () => {
+  }
+
+  function handleClearFilter() {
     setSelectedFilter(null);
     setCurrentPage(1);
-  };
-  const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  }
+  
+  function handleFilterChange(event: React.ChangeEvent<HTMLInputElement>) {
+    //targeting the input form below
     const newFilter = event.target.value;
     setSelectedFilter(newFilter);
     setCurrentPage(1);
-  };
+  }
+
   const imageSize: React.CSSProperties = {
     width: "155px",
     objectFit: "cover",
   };
-  const filteredCards = jsonData
-    .filter((product) =>
-      product.Product_name.toLowerCase().includes(searchKeyword.toLowerCase())
+
+  var filteredCards = jsonData // importing json data
+    .filter(
+      (product) =>
+        product.Product_name.toLowerCase().includes(searchKeyword.toLowerCase()) //search function
     )
-    .filter((product) =>
-      selectedFilter ? product.cat === selectedFilter : true
+
+    .filter(
+      (product) => (selectedFilter ? product.cat === selectedFilter : true) // checks if selected filter is in "cat" in json data
     );
+
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
+  
   return (
     <>
       <h1>HighFashion</h1>
@@ -70,8 +81,8 @@ function ProjectsPage() {
                 <input
                   type="radio"
                   value="Bags"
-                  checked={selectedFilter === "Bags"}
-                  onChange={handleFilterChange}
+                  checked={selectedFilter === "Bags"} //check the state of the filter
+                  onChange={handleFilterChange} //call the function, to show cat of bags
                 />
                 <span className="checkmark"></span>
                 Bags

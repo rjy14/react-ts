@@ -12,6 +12,7 @@ import LoginForm from "./Login/Login";
 import CheckOut from "./CheckOut/CheckOut";
 import Product from "../components/DetailedProductPage/Products";
 import React from "react";
+
 function App() {
   return (
     <>

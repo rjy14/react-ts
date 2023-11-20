@@ -5,7 +5,9 @@ import { Card } from "react-bootstrap";
 import "./Products.css";
 import { useShoppingCart } from "../../context/CartContext";
 import { useState } from "react";
+//TypeScript
 type Product = {
+
   Product_id: number;
   Product_name: string;
   Product_price: number;
@@ -15,25 +17,32 @@ type Product = {
   cat: string;
   Product_qty: number;
 };
+
 function Products() {
+
   const {
     increaseCartQuantity,
-    // decreaseCartQuantity,
-    // removeFromCart,
   } = useShoppingCart();
+
   const [productData, setProductData] = useState(jsonData as Product[]);
+  //^ declaring a state variable
+  //^ useState to manage state of product qty changes
   let { id } = useParams();
   const project = productData.find(
+
     (project) => project.Product_id === Number(id)
   );
+  //^ to get the id to show the selected product
   const handleAddToCart = () => {
+
     if (
       project?.Product_id !== undefined &&
-      project.Product_qty &&
+      // -project.Product_qty &&-
       project.Product_qty > 0
     ) {
+
       increaseCartQuantity(project.Product_id);
-      // Update the quantity in the local state
+      //^ Update the qty in shopping cart
       const updatedData = productData.map((item) =>
         item.Product_id === project.Product_id
           ? {
@@ -43,12 +52,15 @@ function Products() {
           : item
       );
       setProductData(updatedData);
+      //^ update state of qty after adding item to cart
     }
   };
+
   const imageSize: React.CSSProperties = {
     width: "255px",
     height: "255px",
   };
+  
   return (
     <div>
       <div className="card-container">

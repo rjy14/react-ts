@@ -43,7 +43,6 @@ function ProjectsPage() {
       <h1>Welcome to HighFashion!</h1>
       <u><h2>Latest Summer Products</h2></u>
       <Carousel />
-      {/* <ProductsPage/> */}
       <footer>
         <p>&copy;</p>
       </footer>
@@ -51,4 +50,4 @@ function ProjectsPage() {
   );
 }
 export default ProjectsPage;
-//Home in  navbar
+//Home in navbar

@@ -6,37 +6,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 import { Button } from "react-bootstrap";
 function TopNavbar() {
+
   const { openCart, cartQuantity } = useShoppingCart();
+
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark" style={{ height: "70px" }}>
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link
-              href="/home"
-              style={{ fontSize: "20px", marginLeft: "30px" }}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              href="/Sale"
-              style={{ fontSize: "20px", marginLeft: "60px" }}
-            >
-              Sale
-            </Nav.Link>
-            <Nav.Link
-              href="/AllProducts"
-              style={{ fontSize: "20px", marginLeft: "90px" }}
-            >
-              Products
-            </Nav.Link>
+            <Nav.Link href="/home"  style={{ fontSize: "20px", marginLeft: "30px" }}>Home</Nav.Link >
+            <Nav.Link href="/Sale"  style={{ fontSize: "20px", marginLeft: "30px" }}>Sale</Nav.Link>
+            <Nav.Link href="/AllProducts" style={{ fontSize: "20px", marginLeft: "30px" }}>Products</Nav.Link>
           </Nav>
           <Nav>
-            {cartQuantity > 0 && (
+          {cartQuantity > 0 && (
               <Button
                 onClick={openCart}
-                style={{ width: "3rem", height: "3rem", position: "relative" }}
+                style={{ width: "3rem", height: "3rem", position: "relative", backgroundColor: "black" }}
                 className="rounded-circle"
               >
                 <FontAwesomeIcon icon={faShoppingCart} className="cart-link" />
@@ -56,18 +43,8 @@ function TopNavbar() {
                 </div>
               </Button>
             )}
-            <Nav.Link
-              href="/Login"
-              style={{ fontSize: "20px", marginRight: "30px" }}
-            >
-              Login
-            </Nav.Link>
-            <Nav.Link
-              href="/Signup"
-              style={{ fontSize: "20px", marginRight: "60px" }}
-            >
-              Signup
-            </Nav.Link>
+            <Nav.Link href="/Login" style={{ fontSize: "20px", marginRight: "30px" }}>Login</Nav.Link>
+            <Nav.Link href="/Signup" style={{ fontSize: "20px", marginRight: "60px" }}>Signup</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

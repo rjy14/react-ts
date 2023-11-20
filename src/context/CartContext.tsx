@@ -5,11 +5,13 @@ import ShoppingCart from "../components/CartPage/ShoppingCart";
 type ShoppingCartProviderProps = {
   children: ReactNode;
 };
+
 //TypeScript
 type CartItem = {
   id: number;
   quantity: number;
 };
+
 //TypeScript
 type ShoppingCartContext = {
   openCart: () => void;
@@ -22,25 +24,33 @@ type ShoppingCartContext = {
   cartQuantity: number;
   cartItems: CartItem[];
 };
+
 const Cart = createContext({} as ShoppingCartContext);
+
 export function useShoppingCart() {
   return useContext(Cart);
 }
+
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
     "shopping-cart",
     []
   );
+
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
+
   const openCart = () => setIsOpen(true);
+
   const closeCart = () => setIsOpen(false);
+
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   }
+
   function increaseCartQuantity(id: number) {
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id === id) == null) {
@@ -56,6 +66,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }
     });
   }
+
   function decreaseCartQuantity(id: number) {
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id === id)?.quantity === 1) {
@@ -71,14 +82,17 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }
     });
   }
+
   function removeAll() {
     setCartItems([]);
   }
+
   function removeFromCart(id: number) {
     setCartItems((currItems) => {
       return currItems.filter((item) => item.id !== id);
     });
   }
+  
   return (
     <Cart.Provider
       value={{

@@ -10,9 +10,11 @@ type ShippingData = {
   Postalcode: string;
   //Country: string
 };
+
 type ShippingFormProps = ShippingData & {
   updateFields: (fields: Partial<ShippingData>) => void;
 };
+
 function ShippingForm({
   Firstname,
   Lastname,
@@ -23,7 +25,8 @@ function ShippingForm({
   Address,
   Postalcode,
   updateFields,
-}: ShippingFormProps) {
+}: ShippingFormProps)
+ {
   return (
     <FormWrapper title="Shipping Details">
       <input

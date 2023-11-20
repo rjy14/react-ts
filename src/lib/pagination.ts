@@ -3,6 +3,7 @@ export function getPaginationItems(
     lastPage: number,
     maxLength: number
   ) {
+
     const res: Array<number> = [];
     // handle lastPage less than maxLength
     if (lastPage <= maxLength) {
@@ -10,6 +11,7 @@ export function getPaginationItems(
         res.push(i);
       }
     }
+    
     // handle ellipsis logics
     else {
       const firstPage = 1;
