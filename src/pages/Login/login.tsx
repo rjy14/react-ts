@@ -61,10 +61,11 @@ function LoginForm() {
           />
         </label>
         <center>
-          <button type="submit">Login</button>
+          <button type="submit" disabled={!username || !password}>Login</button>
         </center>
       </form>
     </>
   );
 }
+
 export default LoginForm;

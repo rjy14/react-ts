@@ -5,6 +5,7 @@ import { Card } from "react-bootstrap";
 import "./Products.css";
 import { useShoppingCart } from "../../context/CartContext";
 import { useState } from "react";
+import React from "react";
 //TypeScript
 type Product = {
 

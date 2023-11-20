@@ -15,6 +15,7 @@ function Carousel() {
     );
   };
 
+  
   const PrevArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
       <div className="arrow prev" onClick={onClick}>
@@ -24,28 +25,26 @@ function Carousel() {
   };
 
   const [imageIndex, setImageIndex] = useState<number>(0);
-  const [slidesToShow, setSlidesToShow] = useState<number>();
+  const [slidesToShow, setSlidesToShow] = useState<number>(0);
 
-useEffect(() => {
-    const updateSlidesToShow = () => {
-      // show number of cards based on the screen size
-      if (window.innerWidth >= 1200) {
-        setSlidesToShow(5);
-      } else if (window.innerWidth >= 980) {
-        setSlidesToShow(4);
-      } else if (window.innerWidth >= 750) {
-        setSlidesToShow(3);
-      } else {
-        setSlidesToShow(1);
-      }
-    };
-
-    updateSlidesToShow();
-    window.addEventListener("resize", updateSlidesToShow);
-    return () => {
-      window.removeEventListener("resize", updateSlidesToShow);
-    };
-  });
+  useEffect(
+    () => {
+      const updateSlidesToShow = () => {
+        // show number of cards based on the screen size
+        if (window.innerWidth >= 1250) {
+          setSlidesToShow(5);
+        } else {
+          setSlidesToShow(1);
+        }
+      };
+      updateSlidesToShow();
+      window.addEventListener("resize", updateSlidesToShow);
+      return () => {
+        window.removeEventListener("resize", updateSlidesToShow);
+      };
+    },
+    []
+  );
 
   const settings: Settings = {
     infinite: true,
@@ -57,14 +56,14 @@ useEffect(() => {
     beforeChange: (_current: any, next: number) => setImageIndex(next),
   };
 
-  const limitedData = jsonData.filter(
+  const sliderData = jsonData.filter(
     (product) => product.Product_id >= 90 && product.Product_id <= 1999
   );
-  
+
   return (
     <div className="App">
       <Slider {...settings}>
-        {limitedData.map((product, idx) => (
+        {sliderData.map((product, idx) => (
           <div
             className={idx === imageIndex ? "slide activeSlide" : "slide"}
             key={idx}
@@ -78,4 +77,5 @@ useEffect(() => {
     </div>
   );
 }
+
 export default Carousel;
