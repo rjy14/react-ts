@@ -8,4 +8,5 @@ const Cart: React.FC<CartProps> = ({ cartItems }) => {
   </>
   );
 };
+
 export default Cart;

@@ -5,13 +5,12 @@ import AllProductsPage from "./AllProductsPage/AllProductsPage";
 import { ShoppingCartProvider } from "../context/CartContext";
 import TopNavbar from "../components/Navbar/Navbar";
 import ProjectsPage from "./HomePage/Homepage";
-import SignUpForm from "./Signup/SignUp";
 import Sale from "./Sales/Sale";
 import Cart from "./Cart/Index";
 import LoginForm from "./Login/Login";
 import CheckOut from "./CheckOut/CheckOut";
 import Product from "../components/DetailedProductPage/Products";
-import React from "react";
+import SignUpForm from "./Signup/SignUp";
 
 function App() {
   return (
@@ -34,4 +33,5 @@ function App() {
     </>
   );
 }
+
 export default App;

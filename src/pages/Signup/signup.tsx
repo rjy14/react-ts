@@ -41,7 +41,7 @@ function SignUpForm() {
         <input type="password" value={Password} onChange={(event) => setPassword(event.target.value)} required/>
       </label>
     <center>
-      <button type="submit">Sign up!</button>
+      <button type="submit" disabled={!Email || !FirstName || !LastName || !Username || !Password}>Sign up!</button>
       </center>
       </div>
     </form>
