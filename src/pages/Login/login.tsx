@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
@@ -12,8 +12,13 @@ interface InputProps {
 }
 
 function Input({ type, value, onChange, className, required }: InputProps) {
+  const nameRef = useRef<HTMLInputElement | null>(null) 
+  useEffect(() => {
+    nameRef.current?.focus();
+  }, []);
   return (
     <input
+    ref={nameRef}
       type={type}
       value={value}
       onChange={onChange}
@@ -24,6 +29,7 @@ function Input({ type, value, onChange, className, required }: InputProps) {
 }
 // Usage of Input component in your LoginForm
 function LoginForm() {
+
   const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string | number>("");
@@ -32,9 +38,9 @@ function LoginForm() {
     console.log("username:", username);
     console.log("password:", password);
     alert("welcome to HighFashion!");
-    navigate('/home')
+    navigate("/home");
   };
-  
+
   return (
     <>
       <br />
@@ -61,7 +67,9 @@ function LoginForm() {
           />
         </label>
         <center>
-          <button type="submit" disabled={!username || !password}>Login</button>
+          <button type="submit" disabled={!username || !password}>
+            Login
+          </button>
         </center>
       </form>
     </>
