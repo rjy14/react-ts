@@ -26,31 +26,20 @@ function SignUpForm() {
     <br></br>
     <center><h1>Please enter your details!</h1></center>  
     <form onSubmit={handleSubmit}>  
-    <div>
-    <label>
-        Email Add:
-        <input ref={nameRef} type="email"  value={Email} onChange={(event) => setEmail(event.target.value)} required/>
-      </label>
-      <label>
-        FirstName:
-        <input type="text" value={FirstName} onChange={(event) => setFirstName(event.target.value)} required/>
-      </label>
-      <label>
-        LastName:
-        <input type="text" value={LastName} onChange={(event) => setLastName(event.target.value)} required/>
-      </label>
-      <label>
-        Username:
-        <input type="text" value={Username} onChange={(event) => setUsername(event.target.value)} required/>
-      </label>
-      <label>
-        Password:
-        <input type="password" value={Password} onChange={(event) => setPassword(event.target.value)} required/>
-      </label>
+
+        <input placeholder="Email" ref={nameRef} type="email"  value={Email} onChange={(event) => setEmail(event.target.value)} required/>
+        <br></br>
+        <input placeholder="First Name" type="text" value={FirstName} onChange={(event) => setFirstName(event.target.value)} required/>
+        <br></br>
+        <input placeholder="Last Name" type="text" value={LastName} onChange={(event) => setLastName(event.target.value)} required/>
+        <br></br>
+        <input placeholder="Username" type="text" value={Username} onChange={(event) => setUsername(event.target.value)} required/>
+        <br></br>
+        <input placeholder="Password" type="password" value={Password} onChange={(event) => setPassword(event.target.value)} required/>
+        <br></br>
     <center>
       <button type="submit" disabled={!Email || !FirstName || !LastName || !Username || !Password}>Sign up!</button>
       </center>
-      </div>
     </form>
      </>
   );};

@@ -6,8 +6,6 @@ import jsonData from "../../constant/data.json";
 import { Link } from "react-router-dom";
 function Carousel() {
 
-
-
   //void means it does not return any values
   const NextArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
