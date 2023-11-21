@@ -1,15 +1,22 @@
-import React from 'react';
-import { useState} from "react";
+import { useState, useRef, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
+
+  const nameRef = useRef<HTMLInputElement | null>(null) //autofocus on the first input
+  
+  useEffect(() => {
+    nameRef.current?.focus();
+  }, []);
+  console.log(nameRef.current) 
+  
   const navigate = useNavigate();
   const [Username, setUsername] = useState<string>('');
   const [Password, setPassword] = useState<string | number>('');
   const [Email, setEmail] = useState<string | number>('');
   const [FirstName, setFirstName] = useState<string>('');
   const [LastName, setLastName] = useState<string>('');
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = () => {
     navigate('/login')
     alert("Your account has been registered successfully")
 };  
@@ -22,7 +29,7 @@ function SignUpForm() {
     <div>
     <label>
         Email Add:
-        <input type="email"  value={Email} onChange={(event) => setEmail(event.target.value)} required/>
+        <input ref={nameRef} type="email"  value={Email} onChange={(event) => setEmail(event.target.value)} required/>
       </label>
       <label>
         FirstName:

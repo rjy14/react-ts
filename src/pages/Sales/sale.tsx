@@ -1,4 +1,3 @@
-import React from 'react';
 import "./Sale.css"
 import ProductsCardSale from '../../components/ProductsCardPage/ProductsCardSale';
 interface SaleProps {
@@ -10,4 +9,5 @@ const Sale: React.FC<SaleProps> = () => {
      </>
   );
 };
+
 export default Sale;

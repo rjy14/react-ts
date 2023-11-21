@@ -4,8 +4,10 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Slider.css";
 import jsonData from "../../constant/data.json";
 import { Link } from "react-router-dom";
-
 function Carousel() {
+
+
+
   //void means it does not return any values
   const NextArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
@@ -15,7 +17,6 @@ function Carousel() {
     );
   };
 
-  
   const PrevArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
       <div className="arrow prev" onClick={onClick}>
@@ -30,7 +31,6 @@ function Carousel() {
   useEffect(
     () => {
       const updateSlidesToShow = () => {
-        // show number of cards based on the screen size
         if (window.innerWidth >= 1250) {
           setSlidesToShow(5);
         } else {
@@ -41,9 +41,9 @@ function Carousel() {
       window.addEventListener("resize", updateSlidesToShow);
       return () => {
         window.removeEventListener("resize", updateSlidesToShow);
-      };
+      }; //cleanup before re-rendering the component again
     },
-    []
+    [] //to run only on the first render. Without [], it will keep rendering when the useEffect is called.
   );
 
   const settings: Settings = {
