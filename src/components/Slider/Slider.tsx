@@ -4,8 +4,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Slider.css";
 import jsonData from "../../constant/data.json";
 import { Link } from "react-router-dom";
-function Carousel() {
 
+function Carousel() {
   //void means it does not return any values
   const NextArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
@@ -27,7 +27,9 @@ function Carousel() {
   const [slidesToShow, setSlidesToShow] = useState<number>(0);
 
   useEffect(
+    //component mounts
     () => {
+      console.log("mounted");
       const updateSlidesToShow = () => {
         if (window.innerWidth >= 1250) {
           setSlidesToShow(5);
@@ -39,13 +41,15 @@ function Carousel() {
       window.addEventListener("resize", updateSlidesToShow);
       return () => {
         window.removeEventListener("resize", updateSlidesToShow);
-      }; //cleanup before re-rendering the component again
+        console.log("unmounts");
+      }; //cleanup before re-rendering the component again (unmounts)
     },
-    [] //to run only on the first render. Without [], it will keep rendering when the useEffect is called.
+    [] //to run only on the first render. or if there is something inside [], it will render if the event in [] changes
+    // Without [], it will keep rendering when the useEffect is called.
   );
 
   const settings: Settings = {
-    infinite: true,
+    // infinite: true,
     speed: 700,
     slidesToShow: slidesToShow,
     centerMode: true,
