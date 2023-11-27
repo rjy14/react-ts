@@ -1,4 +1,3 @@
-// import React from 'react'
 import { useParams } from "react-router-dom";
 import jsonData from "../../constant/data.json";
 import { Card } from "react-bootstrap";
@@ -8,7 +7,6 @@ import { useState } from "react";
 import React from "react";
 //TypeScript
 type Product = {
-
   Product_id: number;
   Product_name: string;
   Product_price: number;
@@ -20,28 +18,21 @@ type Product = {
 };
 
 function Products() {
-
-  const {
-    increaseCartQuantity,
-  } = useShoppingCart();
-
+  const { increaseCartQuantity } = useShoppingCart();
   const [productData, setProductData] = useState(jsonData as Product[]);
   //^ declaring a state variable
   //^ useState to manage state of product qty changes
   let { id } = useParams();
   const project = productData.find(
-
     (project) => project.Product_id === Number(id)
   );
   //^ to get the id to show the selected product
   const handleAddToCart = () => {
-
     if (
       project?.Product_id !== undefined &&
       // -project.Product_qty &&-
       project.Product_qty > 0
     ) {
-
       increaseCartQuantity(project.Product_id);
       //^ Update the qty in shopping cart
       const updatedData = productData.map((item) =>
@@ -61,7 +52,7 @@ function Products() {
     width: "255px",
     height: "255px",
   };
-  
+
   return (
     <div>
       <div className="card-container">
@@ -94,4 +85,5 @@ function Products() {
     </div>
   );
 }
+
 export default Products;

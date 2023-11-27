@@ -1,18 +1,18 @@
 import { Nav, Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../context/CartContext";
-import  CartItem  from "./CartItem";
+import CartItem from "./CartItem";
 import storeItems from "../../constant/data.json";
-// import { FC } from "react";
 
 type ShoppingCartProps = {
   isOpen: boolean;
 };
 
-const ShoppingCart:React.FunctionComponent<ShoppingCartProps>=({isOpen})=>{
+const ShoppingCart: React.FunctionComponent<ShoppingCartProps> = ({
+  isOpen,
+}) => {
   const { closeCart, cartItems } = useShoppingCart();
 
   return (
-
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Your shopping Cart</Offcanvas.Title>
@@ -36,6 +36,6 @@ const ShoppingCart:React.FunctionComponent<ShoppingCartProps>=({isOpen})=>{
       </Offcanvas.Body>
     </Offcanvas>
   );
+};
 
-}
 export default ShoppingCart;

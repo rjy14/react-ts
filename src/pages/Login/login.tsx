@@ -1,44 +1,38 @@
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
+import React, { useEffect, useRef, useState  } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
-interface InputProps {
-  type: string;
-  value: string | number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  className: string;
-  required: boolean;
-}
+function LoginForm() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const nameRef = useRef<HTMLInputElement>(null);
 
-function Input({ type, value, onChange, className, required }: InputProps) {
-  const nameRef = useRef<HTMLInputElement | null>(null) 
   useEffect(() => {
     nameRef.current?.focus();
   }, []);
-  return (
-    <input
-    ref={nameRef}
-      type={type}
-      value={value}
-      onChange={onChange}
-      className={className}
-      required={required}
-    />
-  );
-}
-// Usage of Input component in your LoginForm
-function LoginForm() {
 
-  const navigate = useNavigate();
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string | number>("");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // event.preventDefault(); commented out so the page will reload after submit
-    console.log("username:", username);
-    console.log("password:", password);
-    alert("welcome to HighFashion!");
-    navigate("/home");
+    event.preventDefault();
+
+    // Retrieve user data from local storage
+    const storedUserData = localStorage.getItem("userData");
+
+    if (storedUserData) {
+      const userData = JSON.parse(storedUserData);
+
+      // Check if entered username and password match stored values
+      if (userData.username === username && userData.password === password) {
+        console.log("Login successful");
+        alert("Welcome to HighFashion!");
+        navigate("/home");
+      } else {
+        console.log("Invalid username or password");
+        alert("Invalid username or password");
+      }
+    } else {
+      alert("Account not found, please sign up.");
+    }
   };
 
   return (
@@ -46,26 +40,25 @@ function LoginForm() {
       <br />
       <h1>Please enter your account details!</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <Input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            className="rounded-input"
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <Input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            className="rounded-input"
-            required
-          />
-        </label>
+        <input
+          placeholder="Username"
+          ref={nameRef} 
+          type="text"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+          className="rounded-input"
+          required
+        />
+        <br />
+        <input
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          className="rounded-input"
+          required
+        />
+        <br />
         <center>
           <button type="submit" disabled={!username || !password}>
             Login

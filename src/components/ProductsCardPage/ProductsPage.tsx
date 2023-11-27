@@ -1,14 +1,14 @@
+import React, { useCallback, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import React, { useState } from "react";
 import "../../pages/HomePage/Homepage.css";
 import jsonData from "../../constant/data.json";
 import Pagination from "../Pagination/Index";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
-function ProjectsPage() {
 
+function ProjectsPage () {
   const { increaseCartQuantity } = useShoppingCart();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -17,43 +17,52 @@ function ProjectsPage() {
   const cardsPerPage: number = 12; //number of cards
   const indexOfLastCard: number = currentPage * cardsPerPage;
   const indexOfFirstCard: number = indexOfLastCard - cardsPerPage;
-
   //^ variables
-  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
-    //targeting the input form below
-    setSearchKeyword(event.target.value);
-    setCurrentPage(1);
-  }
 
-  function handleClearFilter() {
+  const handleSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchKeyword(event.target.value);
+      setCurrentPage(1);
+    },
+    [setSearchKeyword, setCurrentPage]
+  );
+
+  const handleClearFilter = useCallback(() => {
     setSelectedFilter(null);
     setCurrentPage(1);
-  }
-  
-  function handleFilterChange(event: React.ChangeEvent<HTMLInputElement>) {
-    //targeting the input form below
+  }, []);
+
+  const handleClearSearch = useCallback(() => {
+    setSearchKeyword("");
+  }, []);
+
+  function handleFilterChange(event: { target: { value: any } }) {
     const newFilter = event.target.value;
     setSelectedFilter(newFilter);
     setCurrentPage(1);
   }
+  const handleClearAll = useCallback(() => {
+    handleClearFilter();
+    handleClearSearch();
+  }, [handleClearFilter, handleClearSearch]);
 
+  console.log("page rendered")
+  
   const imageSize: React.CSSProperties = {
     width: "155px",
     objectFit: "cover",
   };
 
-  var filteredCards = jsonData // importing json data
-    .filter(
-      (product) =>
-        product.Product_name.toLowerCase().includes(searchKeyword.toLowerCase()) //search function
+  var filteredCards = jsonData
+    .filter((product) =>
+      product.Product_name.toLowerCase().includes(searchKeyword.toLowerCase())
     )
-
-    .filter(
-      (product) => (selectedFilter ? product.cat === selectedFilter : true) // checks if selected filter is in "cat" in json data
+    .filter((product) =>
+      selectedFilter ? product.cat === selectedFilter : true
     );
 
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
-  
+
   return (
     <>
       <h1>HighFashion</h1>
@@ -119,7 +128,7 @@ function ProjectsPage() {
               </label>
             </div>
             <center>
-              <button onClick={handleClearFilter}>Clear</button>
+              <button onClick={handleClearAll}>Clear</button>
             </center>
           </div>
         </div>
@@ -174,4 +183,5 @@ function ProjectsPage() {
     </>
   );
 }
+
 export default ProjectsPage;

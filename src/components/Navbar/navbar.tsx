@@ -5,7 +5,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navbar.css";
 import { Button } from "react-bootstrap";
-import React from "react";
+
 function TopNavbar() {
 
   const { openCart, cartQuantity } = useShoppingCart();
@@ -52,4 +52,5 @@ function TopNavbar() {
     </>
   );
 }
+
 export default TopNavbar;
