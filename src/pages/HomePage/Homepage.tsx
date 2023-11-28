@@ -1,47 +1,13 @@
 import Carousel from "../../components/Slider/Slider";
-import "./Homepage.css"
-// import ProductsPage from '../../components/ProductsCardPage/ProductsPage';
+import "./Homepage.css";
+
 function ProjectsPage() {
-  //   <>
-  //   <div className='scrollable-table'>
-  //   <br></br>
-  //   <Row xs={1} md={4} className="g-0 justify-content-center">
-  //   {currentCards.map((Product, id) => (
-  //       <Col key={id} className="p-2 d-flex justify-content-center">
-  //          <Link to={`/Product/${id}`}>
-  //         <Card>
-  //           <div className="text-center">
-  //             <Card.Img src={Product.Product_picture} style={imageSize} />
-  //           </div>
-  //         <Card.Body >
-  //           <Card.Title>
-  //             {Product.Product_name}
-  //             </Card.Title>
-  //             <Card.Text>
-  //               {Product.Product_price}
-  //             </Card.Text>
-  //             <Card.Footer className="card-footer">
-  //             <button className="button" onClick={AddToCart}>Add to cart</button>
-  //             </Card.Footer>
-  //           </Card.Body>
-  //         </Card>
-  //         </Link>
-  //       </Col>
-  //     ))}
-  //   </Row>
-  //   </div>
-  //   <div>
-  //   <Pagination currentPage={currentPage}
-  // lastPage={lastPage}
-  // maxLength={7}
-  // setCurrentPage={setCurrentPage}/>
-  //   </div>
-  //   </>
-  //   );
   return (
     <>
       <h1>Welcome to HighFashion!</h1>
-      <u><h2>Latest Summer Products</h2></u>
+      <u>
+        <h2>Latest Summer Products</h2>
+      </u>
       <Carousel />
       <footer>
         <p>&copy;</p>
@@ -49,5 +15,6 @@ function ProjectsPage() {
     </>
   );
 }
+
 export default ProjectsPage;
 //Home in navbar

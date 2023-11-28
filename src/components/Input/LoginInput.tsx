@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 function InputComponent() {
   const navigate = useNavigate();
   const { username, password, UsernameInput, PasswordInput } = useInput();
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

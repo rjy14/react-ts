@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-
-const useInput = () => {
+// import { Provider } from "react-redux";
+function useInput() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const nameRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     nameRef.current?.focus();
   }, []);
+
   function UsernameInput() {
     return (
       <>
@@ -40,6 +42,6 @@ const useInput = () => {
     );
   }
   return { username, password, UsernameInput, PasswordInput };
-};
+}
 
 export default useInput;
