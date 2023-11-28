@@ -1,6 +1,13 @@
-import {createContext,ReactNode,useCallback,useContext,useState} from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 import ShoppingCart from "../components/CartPage/ShoppingCart";
+import useLocalStorage from "../hooks/useLocalStorage";
+
 //TypeScript
 type ShoppingCartProviderProps = {
   children: ReactNode;
