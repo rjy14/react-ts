@@ -1,3 +1,5 @@
+import ShoppingCart from "../components/CartPage/ShoppingCart";
+import useLocalStorage from "../hooks/useLocalStorage";
 import {
   createContext,
   ReactNode,
@@ -5,8 +7,6 @@ import {
   useContext,
   useState,
 } from "react";
-import ShoppingCart from "../components/CartPage/ShoppingCart";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 //TypeScript
 type ShoppingCartProviderProps = {
@@ -98,7 +98,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   function removeAll() {
     setCartItems([]);
-  }
+  } //successful checkout, remove all items in cart
 
   function removeFromCart(id: number) {
     setCartItems((currItems) => {

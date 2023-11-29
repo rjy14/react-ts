@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <ShoppingCartProvider>
-        <TopNavbar />
+        <TopNavbar /> {/*  made available for all screens */}
         <BrowserRouter>
           <Routes>
             <Route path="/CheckOut" element={<CheckOut />} />
