@@ -7,8 +7,9 @@ import jsonData from "../../constant/data.json";
 import Pagination from "../Pagination/Index";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
+import Search from "../Search/Search";
 
-function ProjectsPage () {
+function ProjectsPage() {
   const { increaseCartQuantity } = useShoppingCart();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -20,20 +21,17 @@ function ProjectsPage () {
   //^ variables
 
   const handleSearchChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchKeyword(event.target.value);
+    (text: string) => {
+      setSearchKeyword(text);
       setCurrentPage(1);
     },
-    [setSearchKeyword, setCurrentPage]
+   []
   );
 
   const handleClearFilter = useCallback(() => {
     setSelectedFilter(null);
     setCurrentPage(1);
-  }, []);
-
-  const handleClearSearch = useCallback(() => {
-    setSearchKeyword("");
+    console.log("cleared");
   }, []);
 
   function handleFilterChange(event: { target: { value: any } }) {
@@ -43,11 +41,8 @@ function ProjectsPage () {
   }
   const handleClearAll = useCallback(() => {
     handleClearFilter();
-    handleClearSearch();
-  }, [handleClearFilter, handleClearSearch]);
+  }, [handleClearFilter]);
 
-  console.log("page rendered")
-  
   const imageSize: React.CSSProperties = {
     width: "155px",
     objectFit: "cover",
@@ -66,18 +61,8 @@ function ProjectsPage () {
   return (
     <>
       <h1>HighFashion</h1>
-      <div className="search-box">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchKeyword}
-          onChange={handleSearchChange}
-          style={{
-            borderRadius: "90px",
-            border: "1px solid #ccc",
-            width: "280px",
-          }}
-        />
+      <div>
+        <Search onChange={handleSearchChange} />
       </div>
       <div className="all-contents">
         <div className="filtering-contents">

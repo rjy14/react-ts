@@ -7,6 +7,7 @@ import jsonData from "../../constant/data.json";
 import Pagination from "../Pagination/Index";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
+import Search from "../Search/Search";
 
 function ProductsCardSale() {
 
@@ -20,13 +21,11 @@ function ProductsCardSale() {
   const indexOfFirstCard: number = indexOfLastCard - cardsPerPage;
 
   const handleSearchChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      //targeting the input form below
-      setSearchKeyword(event.target.value);
+    (text: string) => {
+      setSearchKeyword(text);
       setCurrentPage(1);
-      console.log("search");
     },
-    [setSearchKeyword, setCurrentPage]
+   []
   );
 
   const handleClearFilter = useCallback(() => {
@@ -60,18 +59,8 @@ function ProductsCardSale() {
     <>
       <h1>HighFashion</h1>
 
-      <div className="search-box">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchKeyword}
-          onChange={handleSearchChange}
-          style={{
-            borderRadius: "90px",
-            border: "1px solid #ccc",
-            width: "280px",
-          }}
-        />
+      <div>
+        <Search onChange={handleSearchChange} />
       </div>
 
       <div className="all-contents">

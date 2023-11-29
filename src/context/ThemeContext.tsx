@@ -1,12 +1,5 @@
+export const ThemeContext = () => {
+  return <div>ThemeContext</div>;
+};
 
-
-function ThemeContext() {
-  return (
-<div>
-
-
-
-</div>
-  )
-}
 export default ThemeContext;

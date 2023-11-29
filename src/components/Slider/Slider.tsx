@@ -13,6 +13,7 @@ function Carousel() {
       </div>
     );
   };
+  
   const PrevArrow: React.FC<{ onClick: () => void }> = ({ onClick }) => {
     return (
       <div className="arrow prev" onClick={onClick}>
