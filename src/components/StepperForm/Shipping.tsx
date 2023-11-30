@@ -1,4 +1,4 @@
-import FormWrapper  from "./FormWrapper";
+import FormWrapper from "./FormWrapper";
 type ShippingData = {
   Firstname: string;
   Lastname: string;
@@ -25,8 +25,7 @@ function ShippingForm({
   Address,
   Postalcode,
   updateFields,
-}: ShippingFormProps)
- {
+}: ShippingFormProps) {
   return (
     <FormWrapper title="Shipping Details">
       <input

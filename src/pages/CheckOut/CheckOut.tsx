@@ -60,7 +60,7 @@ function CheckOut() {
     removeAll();
     navigate("/home");
   }
-  
+
   return (
     <>
       <h1>HighFashion</h1>

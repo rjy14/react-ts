@@ -23,4 +23,4 @@ function FormWrapper({ title, children }: FormWrapperProps) {
     </>
   );
 }
-export default FormWrapper
+export default FormWrapper;

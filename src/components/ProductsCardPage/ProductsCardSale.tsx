@@ -1,4 +1,4 @@
-import React, { useCallback, useState} from "react";
+import React, { useCallback, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -8,9 +8,9 @@ import Pagination from "../Pagination/Index";
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
 import Search from "../Search/Search";
+import Filter from "../Filter/Filter";
 
 function ProductsCardSale() {
-
   const { increaseCartQuantity } = useShoppingCart();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -20,26 +20,29 @@ function ProductsCardSale() {
   const indexOfLastCard: number = currentPage * cardsPerPage;
   const indexOfFirstCard: number = indexOfLastCard - cardsPerPage;
 
-  const handleSearchChange = useCallback(
-    (text: string) => {
-      setSearchKeyword(text);
-      setCurrentPage(1);
-    },
-   []
-  );
+  const handleSearchChange = useCallback((text: string) => {
+    setSearchKeyword(text);
+    setCurrentPage(1);
+  }, []);
 
   const handleClearFilter = useCallback(() => {
     setSelectedFilter(null);
     setCurrentPage(1);
     console.log("clear");
-  }, [setCurrentPage]);
+  }, []);
 
-  function handleFilterChange(event: { target: { value: any } }) {
-    const newFilter = event.target.value;
-    setSelectedFilter(newFilter);
-    setCurrentPage(1);
-    console.log("change");
-  } //each time it renders, a function will render as a "new" function
+  const handleFilterChange = useCallback(
+    (value: string) => {
+      setSelectedFilter(value);
+      setCurrentPage(1);
+      console.log("change");
+      return value;
+    },
+    [setSelectedFilter]
+  );
+  const handleClearAll = useCallback(() => {
+    handleClearFilter();
+  }, [handleClearFilter]);
 
   const imageSize: React.CSSProperties = {
     width: "155px",
@@ -57,7 +60,7 @@ function ProductsCardSale() {
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
   return (
     <>
-      <h1>HighFashion</h1>
+      <h1>HighFashions</h1>
 
       <div>
         <Search onChange={handleSearchChange} />
@@ -66,58 +69,10 @@ function ProductsCardSale() {
       <div className="all-contents">
         <div className="filtering-contents">
           <div className="filter">
-            <div className="alignment">
-              <u>
-                <h3>Filters</h3>
-              </u>
-
-              <label className="sidebar-label-container">
-                <input
-                  type="radio"
-                  value="Bags"
-                  checked={selectedFilter === "Bags"}
-                  onChange={handleFilterChange}
-                />
-                <span className="checkmark"></span>
-                Bags
-              </label>
-
-              <label className="sidebar-label-container">
-                <input
-                  type="radio"
-                  value="Shirts"
-                  checked={selectedFilter === "Shirts"}
-                  onChange={handleFilterChange}
-                />
-                <span className="checkmark"></span>
-                Shirts
-              </label>
-
-              <label className="sidebar-label-container">
-                <input
-                  type="radio"
-                  value="Sneakers"
-                  checked={selectedFilter === "Sneakers"}
-                  onChange={handleFilterChange}
-                />
-                <span className="checkmark"></span>
-                Sneakers
-              </label>
-
-              <label className="sidebar-label-container">
-                <input
-                  type="radio"
-                  value="New"
-                  checked={selectedFilter === "New"}
-                  onChange={handleFilterChange}
-                />
-                <span className="checkmark"></span>
-                New
-              </label>
-            </div>
+            <Filter onChange={handleFilterChange} />
 
             <center>
-              <button onClick={handleClearFilter}>Clear</button>
+              <button onClick={handleClearAll}>Clear</button>
             </center>
           </div>
         </div>
@@ -163,7 +118,6 @@ function ProductsCardSale() {
                       <button
                         className="button"
                         onClick={() => increaseCartQuantity(Product.Product_id)}
-                        
                       >
                         Add to cart
                       </button>
@@ -187,4 +141,3 @@ function ProductsCardSale() {
   );
 }
 export default ProductsCardSale;
-
