@@ -14,5 +14,6 @@ export default function ContextComponent() {
       <button onClick={toggleTheme}>Toggle Theme</button>
       <div style={themeStyles}>This Theme</div>
     </>
-  );
+ 
+ );
 }
