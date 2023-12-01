@@ -11,10 +11,12 @@ import LoginForm from "./Login/Login";
 import CheckOut from "./CheckOut/CheckOut";
 import Product from "../components/DetailedProductPage/Products";
 import SignUpForm from "./Signup/SignUp";
+import { ThemeProvider } from "react-bootstrap";
 
 function App() {
   return (
     <>
+    <ThemeProvider>
       <ShoppingCartProvider>
         <TopNavbar /> {/*  made available for all screens */}
         <BrowserRouter>
@@ -30,6 +32,8 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ShoppingCartProvider>
+      </ThemeProvider>
+
     </>
   );
 }

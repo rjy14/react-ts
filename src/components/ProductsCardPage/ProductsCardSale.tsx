@@ -60,7 +60,7 @@ function ProductsCardSale() {
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
   return (
     <>
-      <h1>HighFashions</h1>
+      <h1>HighFashion</h1>
 
       <div>
         <Search onChange={handleSearchChange} />
@@ -69,11 +69,11 @@ function ProductsCardSale() {
       <div className="all-contents">
         <div className="filtering-contents">
           <div className="filter">
-            <Filter onChange={handleFilterChange} />
-
-            <center>
-              <button onClick={handleClearAll}>Clear</button>
-            </center>
+            <Filter
+              selectedFilter={selectedFilter}
+              onFilterChange={handleFilterChange}
+              onClearAll={handleClearAll}
+            />
           </div>
         </div>
 

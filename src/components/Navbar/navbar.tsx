@@ -76,7 +76,6 @@ function TopNavbar() {
               Signup
             </Nav.Link>
           </Nav>
-          <h5>Dark</h5>
         </Navbar.Collapse>
       </Navbar>
     </>

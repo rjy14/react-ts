@@ -21,6 +21,7 @@ const ThemeUpdateContext = createContext<ThemeUpdateContextType | undefined>(
 export function useTheme() {
   return useContext(ThemeContext);
 }
+
 export function useThemeUpdate() {
   return useContext(ThemeUpdateContext);
 }

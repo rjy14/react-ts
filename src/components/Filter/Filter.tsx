@@ -1,62 +1,68 @@
-import { memo } from "react";
+import React, { memo } from 'react';
 
 interface FilterProps {
-  onChange: (value: string) => string;
+  selectedFilter: string | null;
+  onFilterChange: (value: string) => void;
+  onClearAll: () => void;
 }
-function Filter({ onChange }: FilterProps) {
-  console.log("filter rendered");
+
+const Filter: React.FC<FilterProps> = ({ selectedFilter, onFilterChange, onClearAll }) => {
+  const handleFilterChange = (value: string) => {
+    onFilterChange(value);
+  };
+
   return (
-    <div className="alignment">
-      <u>
-        <h3>Filters</h3>
-      </u>
-
-      <label className="sidebar-label-container">
-        <input
-          type="radio"
-          value="Bags"
-          // onChange={handleFilterChange}
-          name="filterGroup"
-          onChange={(e) => onChange(e.target.value)}
-        />
-        <span className="checkmark"></span>
-        Bags
-      </label>
-
-      <label className="sidebar-label-container">
-        <input
-          type="radio"
-          value="Shirts"
-          name="filterGroup"
-          onChange={(e) => onChange(e.target.value)}
-        />
-        <span className="checkmark"></span>
-        Shirts
-      </label>
-
-      <label className="sidebar-label-container">
-        <input
-          type="radio"
-          value="Sneakers"
-          name="filterGroup"
-          onChange={(e) => onChange(e.target.value)}
-        />
-        <span className="checkmark"></span>
-        Sneakers
-      </label>
-
-      <label className="sidebar-label-container">
-        <input
-          type="radio"
-          value="New"
-          name="filterGroup"
-          onChange={(e) => onChange(e.target.value)}
-        />
-        <span className="checkmark"></span>
-        New
-      </label>
+    <div className="filter">
+      <div className="alignment">
+        <u>
+          <h3>Filters</h3>
+        </u>
+        <label className="sidebar-label-container">
+          <input
+            type="radio"
+            value="Bags"
+            checked={selectedFilter === 'Bags'}
+            onChange={() => handleFilterChange('Bags')}
+          />
+          <span className="checkmark"></span>
+          Bags
+        </label>
+        <label className="sidebar-label-container">
+          <input
+            type="radio"
+            value="Shirts"
+            checked={selectedFilter === 'Shirts'}
+            onChange={() => handleFilterChange('Shirts')}
+          />
+          <span className="checkmark"></span>
+          Shirts
+        </label>
+        <label className="sidebar-label-container">
+          <input
+            type="radio"
+            value="Sneakers"
+            checked={selectedFilter === 'Sneakers'}
+            onChange={() => handleFilterChange('Sneakers')}
+          />
+          <span className="checkmark"></span>
+          Sneakers
+        </label>
+        <label className="sidebar-label-container">
+          <input
+            type="radio"
+            value="New"
+            checked={selectedFilter === 'New'}
+            onChange={() => handleFilterChange('New')}
+          />
+          <span className="checkmark"></span>
+          New
+        </label>
+      </div>
+      <center>
+        <button onClick={onClearAll}>Clear</button>
+      </center>
     </div>
   );
-}
+};
 
 export default memo(Filter);

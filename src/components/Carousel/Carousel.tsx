@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Slider, { Settings } from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import "./Slider.css";
+import "./Carousel.css";
 import jsonData from "../../constant/data.json";
 import { Link } from "react-router-dom";
 
@@ -59,7 +59,6 @@ function Carousel() {
 
   const settings: Settings = useMemo(
     () => ({
-      // infinite: true,
       speed: 700,
       slidesToShow: Math.min(slidesToShow, sliderData.length), // Ensure finite value
       centerMode: true,
