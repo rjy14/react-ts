@@ -1,5 +1,5 @@
 import "../../pages/CheckOut/CheckOut.css";
-import  FormWrapper  from "./FormWrapper";
+import FormWrapper from "./FormWrapper";
 type PaymentData = {
   Fullname: string;
   Cardnumber: string;
@@ -18,7 +18,6 @@ export function PaymentForm({
   Expirydate,
   updateFields,
 }: PaymentFormProps) {
-  
   return (
     <FormWrapper title="Shipping Details">
       <label>Fullname</label>

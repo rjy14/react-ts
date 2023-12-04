@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 function useLocalStorage<T>(id: string, initialValue: T | (() => T)) {
   const [value, setValue] = useState<T>(() => {
     const jsonValue = localStorage.getItem(id);
@@ -9,11 +10,13 @@ function useLocalStorage<T>(id: string, initialValue: T | (() => T)) {
     } else {
       return initialValue;
     }
-  });
+  }
+  );
 
   useEffect(() => {
     localStorage.setItem(id, JSON.stringify(value));
   }, [id, value]);
   return [value, setValue] as [typeof value, typeof setValue];
 }
+
 export default useLocalStorage;

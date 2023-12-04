@@ -16,3 +16,10 @@
     font-size: 25px;
     margin-left: 10px;
   }
+
+  h5{
+    position: relative;
+    margin-top: 5px;
+    margin-right: 35px;
+    color: white;
+  }

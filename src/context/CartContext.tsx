@@ -73,6 +73,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
           });
         }
       });
+      console.log("rendered after adding to cart with useCallback");
     },
     [setCartItems]
   );
@@ -92,6 +93,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
           });
         }
       });
+      console.log("rendered after decreasing cart quantity with useCallback");
     },
     [setCartItems]
   );
