@@ -14,9 +14,7 @@ type ThemeContextType = boolean;
 type ThemeUpdateContextType = () => void;
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-const ThemeUpdateContext = createContext<ThemeUpdateContextType | undefined>(
-  undefined
-);
+const ThemeUpdateContext = createContext<ThemeUpdateContextType | undefined>(undefined);
 
 export function useTheme() {
   return useContext(ThemeContext);
@@ -27,7 +25,7 @@ export function useThemeUpdate() {
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-  const [darkTheme, setDarkTheme] = useState<boolean>(true);
+  const [darkTheme, setDarkTheme] = useState<boolean>(false); //set bg color to white
 
   const toggleTheme: ThemeUpdateContextType = () => {
     setDarkTheme((prevDarkTheme) => !prevDarkTheme);
@@ -40,4 +38,4 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
       </ThemeUpdateContext.Provider>
     </ThemeContext.Provider>
   );
-};
+}

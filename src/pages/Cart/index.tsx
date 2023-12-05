@@ -1,4 +1,4 @@
-interface CartProps {
+type CartProps = {
   cartItems: string[];
 }
 const Cart: React.FC<CartProps> = ({ cartItems }) => {

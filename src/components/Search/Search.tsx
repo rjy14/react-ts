@@ -25,7 +25,7 @@ import { memo } from "react";
 //       />
 //     </div>
 //   );
-interface SearchProps {
+type SearchProps = {
   onChange: (text: string) => void;
 }
 

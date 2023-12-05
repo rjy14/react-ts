@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-interface FilterProps {
+type FilterProps = {
   selectedFilter: string | null;
   onFilterChange: (value: string) => void;
   onClearAll: () => void;

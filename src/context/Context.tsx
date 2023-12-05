@@ -5,9 +5,8 @@ export default function ContextComponent() {
   const darkTheme = useTheme();
   const toggleTheme = useThemeUpdate();
   const themeStyles = {
-    backgroundColor: darkTheme ? "white" : "#333",
-    color: darkTheme ? "#333" : "white",
-    padding: "2 rem",
+    backgroundColor: darkTheme ? "#333" : "white",
+    color: darkTheme ? "white" : "#333",
     margin: "2 rem",
   };
 
@@ -23,7 +22,6 @@ export default function ContextComponent() {
         <footer>
           <p>&copy;</p>
         </footer>
-        This Theme
       </div>
     </>
   );
