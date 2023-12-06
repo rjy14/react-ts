@@ -1,7 +1,12 @@
-
 import { Button, Stack } from "react-bootstrap";
-import { useShoppingCart } from "../../context/CartContext";
 import storeItems from "../../constant/data.json";
+import { RootState } from "../Redux/Root";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "../Redux/CartSlice";
 
 //TypeScript
 type CartItemProps = {
@@ -9,13 +14,33 @@ type CartItemProps = {
   quantity: number;
 };
 
-const CartItem: React.FunctionComponent<CartItemProps> = ({ id, quantity }) => {
-  const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
-  const { removeFromCart } = useShoppingCart();
-  const item = storeItems.find((i) => i.Product_id === id);
- 
+const CartItem: React.FC<CartItemProps> = ({ id }) => {
+  const dispatch = useDispatch();
 
-  if (item == null) return null;
+  // Using useSelector to get the quantity and item details from the Redux store
+  const { quantity, item } = useSelector((state: RootState) => {
+    const cartItem = state.counter.cart.find((cartItem) => cartItem.id === id);
+    const item = storeItems.find((i) => i.Product_id === id);
+
+    return {
+      quantity: cartItem ? cartItem.quantity : 0,
+      item,
+    };
+  });
+
+  const handleIncrease = () => {
+    dispatch(increaseQuantity(id));
+  };
+
+  const handleDecrease = () => {
+    dispatch(decreaseQuantity(id));
+  };
+
+  const handleRemove = () => {
+    dispatch(removeFromCart(id));
+  };
+
+  if (!item) return null;
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
@@ -42,7 +67,8 @@ const CartItem: React.FunctionComponent<CartItemProps> = ({ id, quantity }) => {
             <Button
               className="w-30"
               style={{ backgroundColor: "grey", border: "1px solid #ccc" }}
-              onClick={() => decreaseCartQuantity(id)}
+              // onClick={() => decreaseCartQuantity(id)}
+              onClick={handleDecrease}
             >
               -
             </Button>
@@ -50,7 +76,8 @@ const CartItem: React.FunctionComponent<CartItemProps> = ({ id, quantity }) => {
             <Button
               className="w-30"
               style={{ backgroundColor: "grey", border: "1px solid #ccc" }}
-              onClick={() => increaseCartQuantity(id)}
+              // onClick={() => increaseCartQuantity(id)}
+              onClick={handleIncrease}
             >
               +
             </Button>
@@ -62,7 +89,8 @@ const CartItem: React.FunctionComponent<CartItemProps> = ({ id, quantity }) => {
       <Button
         variant="outline-danger"
         size="sm"
-        onClick={() => removeFromCart(item.Product_id)}
+        // onClick={() => removeFromCart(item.Product_id)}
+        onClick={handleRemove}
       >
         &times;
       </Button>
