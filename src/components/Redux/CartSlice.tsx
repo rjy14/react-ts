@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CartItem {
   id: number;
@@ -14,12 +14,12 @@ const initialState: CartState = {
 };
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
     increaseQuantity: (state, action: PayloadAction<number>) => {
       const id = action.payload;
-      const existingItem = state.cartItems.find(item => item.id === id);
+      const existingItem = state.cartItems.find((item) => item.id === id);
 
       if (existingItem) {
         existingItem.quantity += 1;
@@ -29,11 +29,11 @@ const cartSlice = createSlice({
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
       const id = action.payload;
-      const existingItem = state.cartItems.find(item => item.id === id);
+      const existingItem = state.cartItems.find((item) => item.id === id);
 
       if (existingItem) {
         if (existingItem.quantity === 1) {
-          state.cartItems = state.cartItems.filter(item => item.id !== id);
+          state.cartItems = state.cartItems.filter((item) => item.id !== id);
         } else {
           existingItem.quantity -= 1;
         }
@@ -42,15 +42,16 @@ const cartSlice = createSlice({
 
     removeAll: (state, action: PayloadAction<number>) => {
       const id = action.payload;
-     state.cartItems = state.cartItems.filter(item => item.id !== id);
+      state.cartItems = state.cartItems.filter((item) => item.id !== id);
     },
 
     removeFromCart: (state, action: PayloadAction<number>) => {
       const id = action.payload;
-      state.cartItems = state.cartItems.filter(item => item.id !== id);
+      state.cartItems = state.cartItems.filter((item) => item.id !== id);
     },
   },
 });
 
-export const { increaseQuantity, decreaseQuantity, removeFromCart, removeAll } = cartSlice.actions;
+export const { increaseQuantity, decreaseQuantity, removeFromCart, removeAll } =
+  cartSlice.actions;
 export default cartSlice.reducer;
