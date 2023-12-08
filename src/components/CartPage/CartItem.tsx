@@ -1,4 +1,3 @@
-
 import { Button, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../../context/CartContext";
 import storeItems from "../../constant/data.json";
@@ -9,12 +8,10 @@ type CartItemProps = {
   quantity: number;
 };
 
-const CartItem: React.FunctionComponent<CartItemProps> = ({ id, quantity }) => {
-  const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
-  const { removeFromCart } = useShoppingCart();
+const CartItem: React.FC<CartItemProps> = ({ id, quantity }) => {
+  const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
+    useShoppingCart();
   const item = storeItems.find((i) => i.Product_id === id);
- 
-
   if (item == null) return null;
 
   return (

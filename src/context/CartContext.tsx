@@ -5,33 +5,29 @@ import {
   ReactNode,
   useCallback,
   useContext,
+  useState,
 } from "react";
-import {
-  increaseQuantity,
-  decreaseQuantity,
-  removeAll,
-  removeFromCart,
-} from '../components/Redux/CartSlice';
-import { useDispatch, useSelector } from "react-redux";
 
-// TypeScript
+//TypeScript
 type ShoppingCartProviderProps = {
   children: ReactNode;
 };
 
-// TypeScript
+//TypeScript
 type CartItem = {
   id: number;
   quantity: number;
 };
 
-// TypeScript
+//TypeScript
 type ShoppingCartContext = {
+  openCart: () => void;
+  closeCart: () => void;
   getItemQuantity: (id: number) => number;
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
-  removeAll: (id: number) => void;
+  removeAll: () => void;
   cartQuantity: number;
   cartItems: CartItem[];
 };
@@ -43,9 +39,20 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
-  const cartItems = useSelector((state) => state.cart.counter.cartItems);
-  const cartQuantity = cartItems.reduce((quantity: any, item: { quantity: any }) => item.quantity + quantity, 0);
-  const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+    "shopping-cart",
+    []
+  );
+
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0
+  );
+
+  const openCart = () => setIsOpen(true);
+
+  const closeCart = () => setIsOpen(false);
 
   function getItemQuantity(id: number) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -53,28 +60,53 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   const increaseCartQuantity = useCallback(
     (id: number) => {
-      dispatch(increaseQuantity(id));
+      setCartItems((currentItems) => {
+        if (currentItems.find((item) => item.id === id) == null) {
+          return [...currentItems, { id, quantity: 1 }];
+        } else {
+          return currentItems.map((item) => {
+            if (item.id === id) {
+              return { ...item, quantity: item.quantity + 1 };
+            } else {
+              return item;
+            }
+          });
+        }
+      });
+      console.log("rendered after adding to cart with useCallback");
     },
-    [dispatch]
+    [setCartItems]
   );
 
   const decreaseCartQuantity = useCallback(
     (id: number) => {
-      dispatch(decreaseQuantity(id));
+      setCartItems((currentItems) => {
+        if (currentItems.find((item) => item.id === id)?.quantity === 1) {
+          return currentItems.filter((item) => item.id !== id);
+        } else {
+          return currentItems.map((item) => {
+            if (item.id === id) {
+              return { ...item, quantity: item.quantity - 1 };
+            } else {
+              return item;
+            }
+          });
+        }
+      });
+      console.log("rendered after decreasing cart quantity with useCallback");
     },
-    [dispatch]
+    [setCartItems]
   );
 
-  const removeAllItems = useCallback((id: number) => {
-    dispatch(removeAll(id));
-  }, [dispatch]);
+  function removeAll() {
+    setCartItems([]);
+  } //successful checkout, remove all items in cart
 
-  const removeItem = useCallback(
-    (id: number) => {
-      dispatch(removeFromCart(id));
-    },
-    [dispatch]
-  );
+  function removeFromCart(id: number) {
+    setCartItems((currItems) => {
+      return currItems.filter((item) => item.id !== id);
+    });
+  }
 
   return (
     <Cart.Provider
@@ -82,14 +114,16 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
-        removeFromCart: removeItem,
-        removeAll: removeAllItems,
+        removeFromCart,
+        openCart,
+        closeCart,
+        removeAll,
         cartItems,
         cartQuantity,
       }}
     >
       {children}
-      <ShoppingCart />
+      <ShoppingCart isOpen={isOpen} />
     </Cart.Provider>
   );
 }

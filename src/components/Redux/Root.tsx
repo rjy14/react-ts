@@ -1,10 +1,8 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import cartReducer from './CartReducer'; 
+import { combineReducers } from "@reduxjs/toolkit";
+import cartReducer from "./CartSlice";
 
 const rootReducer = combineReducers({
   cart: cartReducer,
-  counter: cartReducer
-  // other reducers...
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
